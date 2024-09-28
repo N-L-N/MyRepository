@@ -52,16 +52,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Animation\AnimPanel.cs" />
+    <Compile Include="GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GeneralForm.Designer.cs">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeControl.Designer.cs">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Intefaces\Animation\IAnimElement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Animation\AnimFlowLayotPanel.cs" />
+    <Compile Include="Static\ButtonColor.cs" />
+    <EmbeddedResource Include="GeneralForm.resx">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeControl.resx">
+      <DependentUpon>HomeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -85,6 +99,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-tab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hamburger-button-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-category-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-category-50%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eat-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-category-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-help-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-down-arrow-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-down-arrow-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-down-arrow-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-collapse-arrow-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

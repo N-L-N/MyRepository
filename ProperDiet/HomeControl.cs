@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace ProperDiet
 {
-    public partial class Form1 : Form
+    public partial class HomeControl : UserControl
     {
-        public Form1()
+        public HomeControl()
         {
             InitializeComponent();
         }
-        
+       
     }
 }
