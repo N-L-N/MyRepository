@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProperDiet.Intefaces.Animation
+namespace ProperDiet.Models.Enums
 {
-    public interface IAnimElement
+    public enum Gender
     {
-        Task Anim();
-        void StopAnim();
+        Male = 0,
+        Female = 1,
     }
 }

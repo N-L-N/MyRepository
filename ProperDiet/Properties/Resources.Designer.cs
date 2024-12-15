@@ -103,6 +103,16 @@ namespace ProperDiet.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_back_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-back-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_category_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-category-25", resourceCulture);
@@ -183,6 +193,26 @@ namespace ProperDiet.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_exit_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-exit-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_exit_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-exit-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_hamburger_button_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-hamburger-button-50", resourceCulture);
@@ -193,9 +223,29 @@ namespace ProperDiet.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_help_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-help-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_help_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-help-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_help_25_1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-help-25(1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

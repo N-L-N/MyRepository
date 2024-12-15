@@ -10,9 +10,9 @@ namespace ProperDiet.Static
 {
     static public class ButtonColor
     {
-        private static Color defaultColorButton = Color.FromArgb(28, 27, 50);
+        private static readonly Color defaultColorButton = Color.FromArgb(28, 27, 50);
 
-        private static Color activeColorButton = Color.FromArgb(28, 27, 80);
+        private static readonly Color activeColorButton = Color.FromArgb(28, 27, 80);
         public static void SetButtonColor(Button button, Color color)
         {
             button.BackColor = color;

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace ProperDiet.Intefaces.Animation
+namespace ProperDiet.Intefaces.Blocks
 {
-    public interface IAnimElement
+    internal interface IBlock
     {
-        Task Anim();
-        void StopAnim();
+        void CreateBlockAsync();
     }
 }

@@ -16,7 +16,7 @@ namespace ProperDiet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GeneralForm());
+            Application.Run(new RegistrationForm());
         }
     }
 }

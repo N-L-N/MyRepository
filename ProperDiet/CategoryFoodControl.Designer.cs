@@ -1,6 +1,6 @@
 ﻿namespace ProperDiet
 {
-    partial class HomeControl
+    partial class CategoryFoodControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,36 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mealEntryPanel = new System.Windows.Forms.Panel();
+            this.BlocksAdder = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // mealEntryPanel
+            // BlocksAdder
             // 
-            this.mealEntryPanel.AutoScroll = true;
-            this.mealEntryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mealEntryPanel.Location = new System.Drawing.Point(0, 0);
-            this.mealEntryPanel.Name = "mealEntryPanel";
-            this.mealEntryPanel.Size = new System.Drawing.Size(1129, 300);
-            this.mealEntryPanel.TabIndex = 9;
+            this.BlocksAdder.AutoScroll = true;
+            this.BlocksAdder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BlocksAdder.Location = new System.Drawing.Point(0, 0);
+            this.BlocksAdder.Name = "BlocksAdder";
+            this.BlocksAdder.Size = new System.Drawing.Size(813, 517);
+            this.BlocksAdder.TabIndex = 0;
             // 
-            // HomeControl
+            // CategoryControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.Controls.Add(this.mealEntryPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ForeColor = System.Drawing.Color.LightGray;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "HomeControl";
-            this.Size = new System.Drawing.Size(1129, 300);
-            this.Load += new System.EventHandler(this.HomeControl_Load);
+            this.Controls.Add(this.BlocksAdder);
+            this.Name = "CategoryControl";
+            this.Size = new System.Drawing.Size(813, 517);
+            this.Load += new System.EventHandler(this.CategoryControl_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel mealEntryPanel;
+
+        private System.Windows.Forms.FlowLayoutPanel BlocksAdder;
     }
 }
