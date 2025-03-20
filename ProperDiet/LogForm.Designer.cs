@@ -76,8 +76,9 @@
             // 
             // logButton
             // 
-            this.logButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.logButton.BackColor = System.Drawing.Color.Black;
             this.logButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logButton.ForeColor = System.Drawing.Color.White;
             this.logButton.Location = new System.Drawing.Point(262, 210);
             this.logButton.Name = "logButton";
             this.logButton.Size = new System.Drawing.Size(190, 41);
@@ -114,13 +115,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(720, 324);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ForeColor = System.Drawing.Color.LightGray;
+            this.ForeColor = System.Drawing.Color.Snow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(789, 405);

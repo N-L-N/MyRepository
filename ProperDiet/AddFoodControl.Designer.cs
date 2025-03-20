@@ -51,10 +51,10 @@
             // 
             // cmbCategory
             // 
-            this.cmbCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.cmbCategory.BackColor = System.Drawing.Color.Black;
             this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbCategory.ForeColor = System.Drawing.Color.LightGray;
+            this.cmbCategory.ForeColor = System.Drawing.Color.Snow;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(0, 30);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
@@ -89,11 +89,11 @@
             // AddFoodButton
             // 
             this.AddFoodButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddFoodButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(70)))));
-            this.AddFoodButton.FlatAppearance.BorderSize = 0;
+            this.AddFoodButton.BackColor = System.Drawing.Color.Black;
+            this.AddFoodButton.FlatAppearance.BorderColor = System.Drawing.Color.Snow;
             this.AddFoodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddFoodButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.AddFoodButton.ForeColor = System.Drawing.Color.LightGray;
+            this.AddFoodButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddFoodButton.ForeColor = System.Drawing.Color.White;
             this.AddFoodButton.Location = new System.Drawing.Point(356, 15);
             this.AddFoodButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddFoodButton.Name = "AddFoodButton";
@@ -119,7 +119,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.ForeColor = System.Drawing.Color.Snow;
             this.label1.Location = new System.Drawing.Point(-4, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -131,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightGray;
+            this.label4.ForeColor = System.Drawing.Color.Snow;
             this.label4.Location = new System.Drawing.Point(0, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -141,15 +141,16 @@
             // 
             // txtCalories
             // 
-            this.txtCalories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.txtCalories.BackColor = System.Drawing.Color.Black;
             this.txtCalories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCalories.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCalories.ForeColor = System.Drawing.Color.LightGray;
-            this.txtCalories.Location = new System.Drawing.Point(0, 85);
+            this.txtCalories.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtCalories.ForeColor = System.Drawing.Color.Snow;
+            this.txtCalories.Location = new System.Drawing.Point(0, 82);
             this.txtCalories.Margin = new System.Windows.Forms.Padding(4);
             this.txtCalories.MaxLength = 200;
             this.txtCalories.Name = "txtCalories";
-            this.txtCalories.Size = new System.Drawing.Size(1168, 24);
+            this.txtCalories.Size = new System.Drawing.Size(1168, 27);
             this.txtCalories.TabIndex = 6;
             // 
             // panel3
@@ -167,7 +168,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.ForeColor = System.Drawing.Color.Snow;
             this.label3.Location = new System.Drawing.Point(0, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -177,11 +178,11 @@
             // 
             // txtFoodDescription
             // 
-            this.txtFoodDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.txtFoodDescription.BackColor = System.Drawing.Color.Black;
             this.txtFoodDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFoodDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtFoodDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtFoodDescription.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFoodDescription.ForeColor = System.Drawing.Color.Snow;
             this.txtFoodDescription.Location = new System.Drawing.Point(0, 59);
             this.txtFoodDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtFoodDescription.MaxLength = 3000;
@@ -205,7 +206,7 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.ForeColor = System.Drawing.Color.Snow;
             this.label2.Location = new System.Drawing.Point(0, 34);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -215,10 +216,10 @@
             // 
             // txtFoodName
             // 
-            this.txtFoodName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.txtFoodName.BackColor = System.Drawing.Color.Black;
             this.txtFoodName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFoodName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtFoodName.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFoodName.ForeColor = System.Drawing.Color.Snow;
             this.txtFoodName.Location = new System.Drawing.Point(0, 55);
             this.txtFoodName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFoodName.Name = "txtFoodName";
@@ -229,9 +230,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ForeColor = System.Drawing.Color.Snow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddFoodControl";
             this.Size = new System.Drawing.Size(1168, 709);

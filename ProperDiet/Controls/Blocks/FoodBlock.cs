@@ -1,5 +1,4 @@
-﻿using Guna.UI2.WinForms.Suite;
-using ProperDiet.Intefaces.Blocks;
+﻿using ProperDiet.Intefaces.Blocks;
 using ProperDiet.Services;
 using ProperDiet.Services.Data;
 using System;
@@ -20,8 +19,6 @@ namespace ProperDiet.Controls.Blocks
         private readonly int _categoryId;
         private FlowLayoutPanel _blocksAdder;
         private TxtDbContext txtDbContext;
-
-         private List<Entity.Food> _foods;
 
         public FoodBlock(int categoryId, FlowLayoutPanel blocksAdder)
         {

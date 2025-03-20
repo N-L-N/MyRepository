@@ -34,7 +34,9 @@
             // mealEntryPanel
             // 
             this.mealEntryPanel.AutoScroll = true;
+            this.mealEntryPanel.BackColor = System.Drawing.Color.Black;
             this.mealEntryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mealEntryPanel.ForeColor = System.Drawing.Color.Snow;
             this.mealEntryPanel.Location = new System.Drawing.Point(0, 0);
             this.mealEntryPanel.Name = "mealEntryPanel";
             this.mealEntryPanel.Size = new System.Drawing.Size(1129, 300);

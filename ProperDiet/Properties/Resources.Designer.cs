@@ -213,6 +213,16 @@ namespace ProperDiet.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_exit_25_1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-exit-25(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_hamburger_button_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-hamburger-button-50", resourceCulture);

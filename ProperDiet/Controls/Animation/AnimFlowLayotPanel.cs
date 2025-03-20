@@ -17,7 +17,6 @@ namespace ProperDiet.Static
         public AnimFlowLayotPanel(FlowLayoutPanel sidebarContainer, int speedAnimation)
         {
             _sidebarContainer = sidebarContainer;
-
             _speedAnimation = speedAnimation;
         }
 
@@ -30,22 +29,20 @@ namespace ProperDiet.Static
             {
                 if (_sidebarExpand)
                 {
-                    _sidebarContainer.Width -= _speedAnimation;
+                    _sidebarContainer.Width = Math.Max(_sidebarContainer.Width - _speedAnimation, _sidebarContainer.MinimumSize.Width);
 
-                    if (_sidebarContainer.Width <= _sidebarContainer.MinimumSize.Width)
+                    if (_sidebarContainer.Width == _sidebarContainer.MinimumSize.Width)
                     {
-                        _sidebarContainer.Width = _sidebarContainer.MinimumSize.Width;
                         _sidebarExpand = false;
                         _isAnimating = false;  // Останавливаем анимацию
                     }
                 }
                 else
                 {
-                    _sidebarContainer.Width += _speedAnimation;
+                    _sidebarContainer.Width = Math.Min(_sidebarContainer.Width + _speedAnimation, _sidebarContainer.MaximumSize.Width);
 
-                    if (_sidebarContainer.Width >= _sidebarContainer.MaximumSize.Width)
+                    if (_sidebarContainer.Width == _sidebarContainer.MaximumSize.Width)
                     {
-                        _sidebarContainer.Width = _sidebarContainer.MaximumSize.Width;
                         _sidebarExpand = true;
                         _isAnimating = false;  // Останавливаем анимацию
                     }

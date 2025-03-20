@@ -1,4 +1,5 @@
-﻿using ProperDiet.Intefaces.Animation;
+﻿using ProperDiet.Controls.Static;
+using ProperDiet.Intefaces.Animation;
 using ProperDiet.Models.Entity;
 using ProperDiet.Services.Calculator;
 using ProperDiet.Services.Data;
@@ -23,6 +24,11 @@ namespace ProperDiet
         public GeneralForm()
         {
             InitializeComponent();
+
+            buttonsSettings = new ButtonsSettings();
+
+            ApplyTheme(); // Устанавливаем тему при старте
+            UiMode.OnThemeChanged += ApplyTheme; // Подписываемся на изменение темы
         }
         CalculatorCalories calculator;
         private User _user;
@@ -30,6 +36,8 @@ namespace ProperDiet
         private Human _human;
 
         private TxtDbContext _txtDbContext;
+
+        private ButtonsSettings buttonsSettings;
         public GeneralForm(User user, Human human)
         {
             InitializeComponent();
@@ -45,9 +53,27 @@ namespace ProperDiet
             _txtDbContext = new TxtDbContext();
 
             CalculateCalories();
+
+            buttonsSettings = new ButtonsSettings();
+
+            ApplyTheme(); // Устанавливаем тему при старте
+            UiMode.OnThemeChanged += ApplyTheme; // Подписываемся на изменение темы
+
+        }
+        private void ApplyTheme()
+        {
+            this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                    button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+                }
+            }
         }
 
-       
         private IAnimElement animElement;
 
         private void CalculateCalories()
@@ -94,44 +120,44 @@ namespace ProperDiet
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            ButtonColor.SetButtonColorDefault(new Button[] 
+            buttonsSettings.SetButtonColorDefault(new Button[] 
             {settingsButton, addFoodButton, addFoodCategoryButton, foodCategoryButton});
-            ButtonColor.SetButtonColorActive(homeButton);
+            buttonsSettings.SetButtonColorActive(homeButton);
 
             LoadControl(new HomeControl(_user));
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            ButtonColor.SetButtonColorDefault(new Button[]
+            buttonsSettings.SetButtonColorDefault(new Button[]
             {homeButton, addFoodButton, addFoodCategoryButton, foodCategoryButton});
-            ButtonColor.SetButtonColorActive(settingsButton);
+            buttonsSettings.SetButtonColorActive(settingsButton);
 
             LoadControl(new Settings());
         }
 
         private void AddFoodButton_Click(object sender, EventArgs e)
         {
-            ButtonColor.SetButtonColorDefault(new Button[]
+            buttonsSettings.SetButtonColorDefault(new Button[]
             {settingsButton, homeButton, addFoodCategoryButton, foodCategoryButton});
-            ButtonColor.SetButtonColorActive(addFoodButton);
+            buttonsSettings.SetButtonColorActive(addFoodButton);
             LoadControl(new AddFoodControl());
         }
 
         private void AddFoodCategoryButton_Click(object sender, EventArgs e)
         {
-            ButtonColor.SetButtonColorDefault(new Button[]
+            buttonsSettings.SetButtonColorDefault(new Button[]
             {settingsButton, addFoodButton, homeButton, foodCategoryButton});
-            ButtonColor.SetButtonColorActive(addFoodCategoryButton);
+            buttonsSettings.SetButtonColorActive(addFoodCategoryButton);
 
             LoadControl(new AddCategoryControl());
         }
 
         private void FoodCategoryButton_Click(object sender, EventArgs e)
         {
-            ButtonColor.SetButtonColorDefault(new Button[]
+            buttonsSettings.SetButtonColorDefault(new Button[]
             {settingsButton, addFoodButton, addFoodCategoryButton, homeButton});
-            ButtonColor.SetButtonColorActive(foodCategoryButton);
+            buttonsSettings.SetButtonColorActive(foodCategoryButton);
 
             LoadControl(new CategoryFoodControl());
         }
@@ -143,7 +169,9 @@ namespace ProperDiet
 
         private void GeneralForm_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        
     }
 }

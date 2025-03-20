@@ -1,6 +1,6 @@
-﻿namespace ProperDiet
+﻿namespace CustomControlsLib
 {
-    partial class CategoryFoodControl
+    partial class ToggleSwitch
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,34 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BlocksAdder = new System.Windows.Forms.FlowLayoutPanel();
-            this.SuspendLayout();
-            // 
-            // BlocksAdder
-            // 
-            this.BlocksAdder.AutoScroll = true;
-            this.BlocksAdder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BlocksAdder.Location = new System.Drawing.Point(0, 0);
-            this.BlocksAdder.Name = "BlocksAdder";
-            this.BlocksAdder.Size = new System.Drawing.Size(813, 517);
-            this.BlocksAdder.TabIndex = 0;
-            // 
-            // CategoryFoodControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.BlocksAdder);
-            this.ForeColor = System.Drawing.Color.Snow;
-            this.Name = "CategoryFoodControl";
-            this.Size = new System.Drawing.Size(813, 517);
-            this.Load += new System.EventHandler(this.CategoryControl_Load);
-            this.ResumeLayout(false);
-
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel BlocksAdder;
     }
 }

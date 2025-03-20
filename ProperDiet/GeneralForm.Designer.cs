@@ -33,10 +33,9 @@
             this.menuPanel = new System.Windows.Forms.Panel();
             this.maxCalories = new System.Windows.Forms.Label();
             this.NameUser = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.PagePanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.PagePanel = new System.Windows.Forms.Panel();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.homeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
@@ -51,7 +50,7 @@
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(27)))), ((int)(((byte)(50)))));
+            this.sidebarContainer.BackColor = System.Drawing.Color.Black;
             this.sidebarContainer.Controls.Add(this.menuPanel);
             this.sidebarContainer.Controls.Add(this.homeButton);
             this.sidebarContainer.Controls.Add(this.settingsButton);
@@ -74,49 +73,41 @@
             // 
             this.menuPanel.Controls.Add(this.maxCalories);
             this.menuPanel.Controls.Add(this.NameUser);
-            this.menuPanel.Controls.Add(this.label1);
             this.menuPanel.Controls.Add(this.menuButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.menuPanel.Location = new System.Drawing.Point(4, 4);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(4);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(317, 125);
+            this.menuPanel.Size = new System.Drawing.Size(317, 121);
             this.menuPanel.TabIndex = 0;
             // 
             // maxCalories
             // 
             this.maxCalories.AutoSize = true;
-            this.maxCalories.Location = new System.Drawing.Point(8, 40);
+            this.maxCalories.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maxCalories.ForeColor = System.Drawing.Color.Snow;
+            this.maxCalories.Location = new System.Drawing.Point(4, 30);
             this.maxCalories.Name = "maxCalories";
-            this.maxCalories.Size = new System.Drawing.Size(132, 16);
+            this.maxCalories.Size = new System.Drawing.Size(181, 25);
             this.maxCalories.TabIndex = 5;
             this.maxCalories.Text = "Максимум калорий";
             // 
             // NameUser
             // 
             this.NameUser.AutoSize = true;
-            this.NameUser.Location = new System.Drawing.Point(8, 5);
+            this.NameUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameUser.ForeColor = System.Drawing.Color.Snow;
+            this.NameUser.Location = new System.Drawing.Point(3, 5);
             this.NameUser.Name = "NameUser";
-            this.NameUser.Size = new System.Drawing.Size(96, 16);
+            this.NameUser.Size = new System.Drawing.Size(126, 25);
             this.NameUser.TabIndex = 3;
             this.NameUser.Text = "Неизвестный";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
-            this.label1.Location = new System.Drawing.Point(56, 83);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Меню";
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.panel2.Location = new System.Drawing.Point(4, 283);
+            this.panel2.BackColor = System.Drawing.Color.Snow;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(4, 279);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(312, 12);
@@ -124,8 +115,9 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.panel3.Location = new System.Drawing.Point(4, 522);
+            this.panel3.BackColor = System.Drawing.Color.Snow;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(4, 518);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(312, 12);
@@ -133,12 +125,12 @@
             // 
             // PagePanel
             // 
+            this.PagePanel.BackColor = System.Drawing.Color.Black;
             this.PagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PagePanel.ForeColor = System.Drawing.Color.Snow;
             this.PagePanel.Location = new System.Drawing.Point(299, 0);
-            this.PagePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.PagePanel.MinimumSize = new System.Drawing.Size(852, 628);
             this.PagePanel.Name = "PagePanel";
-            this.PagePanel.Size = new System.Drawing.Size(852, 628);
+            this.PagePanel.Size = new System.Drawing.Size(852, 623);
             this.PagePanel.TabIndex = 1;
             // 
             // menuButton
@@ -146,10 +138,10 @@
             this.menuButton.BackgroundImage = global::ProperDiet.Properties.Resources.icons8_menu_25;
             this.menuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.menuButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuButton.Location = new System.Drawing.Point(4, 71);
+            this.menuButton.Location = new System.Drawing.Point(7, 70);
             this.menuButton.Margin = new System.Windows.Forms.Padding(4);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(44, 37);
+            this.menuButton.Size = new System.Drawing.Size(44, 35);
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.MenuButton_Click);
@@ -160,10 +152,10 @@
             this.homeButton.FlatAppearance.BorderSize = 0;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeButton.ForeColor = System.Drawing.Color.LightGray;
+            this.homeButton.ForeColor = System.Drawing.Color.Snow;
             this.homeButton.Image = global::ProperDiet.Properties.Resources.icons8_home_25;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(4, 137);
+            this.homeButton.Location = new System.Drawing.Point(4, 133);
             this.homeButton.Margin = new System.Windows.Forms.Padding(4);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(299, 65);
@@ -179,10 +171,10 @@
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ForeColor = System.Drawing.Color.LightGray;
+            this.settingsButton.ForeColor = System.Drawing.Color.Snow;
             this.settingsButton.Image = global::ProperDiet.Properties.Resources.icons8_settings_25;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsButton.Location = new System.Drawing.Point(4, 210);
+            this.settingsButton.Location = new System.Drawing.Point(4, 206);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(299, 65);
@@ -198,10 +190,10 @@
             this.addFoodButton.FlatAppearance.BorderSize = 0;
             this.addFoodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addFoodButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addFoodButton.ForeColor = System.Drawing.Color.LightGray;
+            this.addFoodButton.ForeColor = System.Drawing.Color.Snow;
             this.addFoodButton.Image = global::ProperDiet.Properties.Resources.icons8_eat_25;
             this.addFoodButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addFoodButton.Location = new System.Drawing.Point(4, 303);
+            this.addFoodButton.Location = new System.Drawing.Point(4, 299);
             this.addFoodButton.Margin = new System.Windows.Forms.Padding(4);
             this.addFoodButton.Name = "addFoodButton";
             this.addFoodButton.Size = new System.Drawing.Size(299, 65);
@@ -217,10 +209,10 @@
             this.addFoodCategoryButton.FlatAppearance.BorderSize = 0;
             this.addFoodCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addFoodCategoryButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addFoodCategoryButton.ForeColor = System.Drawing.Color.LightGray;
+            this.addFoodCategoryButton.ForeColor = System.Drawing.Color.Snow;
             this.addFoodCategoryButton.Image = global::ProperDiet.Properties.Resources.icons8_add_25;
             this.addFoodCategoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addFoodCategoryButton.Location = new System.Drawing.Point(4, 376);
+            this.addFoodCategoryButton.Location = new System.Drawing.Point(4, 372);
             this.addFoodCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.addFoodCategoryButton.Name = "addFoodCategoryButton";
             this.addFoodCategoryButton.Size = new System.Drawing.Size(299, 65);
@@ -236,10 +228,10 @@
             this.foodCategoryButton.FlatAppearance.BorderSize = 0;
             this.foodCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.foodCategoryButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodCategoryButton.ForeColor = System.Drawing.Color.LightGray;
+            this.foodCategoryButton.ForeColor = System.Drawing.Color.Snow;
             this.foodCategoryButton.Image = global::ProperDiet.Properties.Resources.icons8_category_25;
             this.foodCategoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.foodCategoryButton.Location = new System.Drawing.Point(4, 449);
+            this.foodCategoryButton.Location = new System.Drawing.Point(4, 445);
             this.foodCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.foodCategoryButton.Name = "foodCategoryButton";
             this.foodCategoryButton.Size = new System.Drawing.Size(299, 65);
@@ -255,10 +247,10 @@
             this.helpButton.FlatAppearance.BorderSize = 0;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpButton.ForeColor = System.Drawing.Color.LightGray;
+            this.helpButton.ForeColor = System.Drawing.Color.Snow;
             this.helpButton.Image = global::ProperDiet.Properties.Resources.icons8_help_25;
             this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(4, 542);
+            this.helpButton.Location = new System.Drawing.Point(4, 538);
             this.helpButton.Margin = new System.Windows.Forms.Padding(4);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(299, 65);
@@ -271,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1151, 623);
             this.Controls.Add(this.PagePanel);
             this.Controls.Add(this.sidebarContainer);
@@ -307,12 +299,11 @@
         private System.Windows.Forms.Button foodCategoryButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Panel PagePanel;
         private System.Windows.Forms.Button addFoodButton;
         private System.Windows.Forms.Button addFoodCategoryButton;
         private System.Windows.Forms.Label NameUser;
         public System.Windows.Forms.Label maxCalories;
+        private System.Windows.Forms.Panel PagePanel;
     }
 }
 

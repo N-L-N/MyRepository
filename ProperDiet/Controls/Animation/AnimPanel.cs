@@ -10,8 +10,6 @@ namespace ProperDiet.Animation
 {
     internal static class AnimPanel
     {
-        private static bool _isAnimating = false;
-
         public static async Task Anim(Panel blockPanel, int duration)
         {
             int targetHeight = blockPanel.Height == 150 ? 50 : 150;
