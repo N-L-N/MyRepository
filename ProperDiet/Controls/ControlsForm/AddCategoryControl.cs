@@ -1,4 +1,5 @@
-﻿using ProperDiet.Services.Data;
+﻿using ProperDiet.Controls.Static;
+using ProperDiet.Services.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,49 @@ namespace ProperDiet
 {
     public partial class AddCategoryControl : UserControl
     {
-
         private TxtDbContext _dbContext;
         public AddCategoryControl()
         {
             InitializeComponent();
 
             _dbContext = new TxtDbContext("data.txt");
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
+        }
+
+        private void ApplyTheme()
+        {
+            this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            foreach (Control control in this.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is Button button)
+            {
+                // Кнопки темные в темной теме и светлые в светлой теме
+                button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else
+            {
+                // Остальные элементы формы окрашиваются по стандартной схеме
+                control.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                control.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
         }
 
         private void panel3_Resize(object sender, EventArgs e)

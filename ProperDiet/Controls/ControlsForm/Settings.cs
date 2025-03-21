@@ -13,6 +13,43 @@ namespace ProperDiet
             InitializeComponent();
 
             UiMode.Update();
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
+        }
+
+        private void ApplyTheme()
+        {
+            this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            foreach (Control control in this.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is Button button)
+            {
+                // Кнопки темные в темной теме и светлые в светлой теме
+                button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else
+            {
+                // Остальные элементы формы окрашиваются по стандартной схеме
+                control.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                control.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

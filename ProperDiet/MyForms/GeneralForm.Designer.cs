@@ -132,6 +132,7 @@
             this.PagePanel.Name = "PagePanel";
             this.PagePanel.Size = new System.Drawing.Size(852, 623);
             this.PagePanel.TabIndex = 1;
+            this.PagePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PagePanel_Paint);
             // 
             // menuButton
             // 
@@ -153,7 +154,7 @@
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeButton.ForeColor = System.Drawing.Color.Snow;
-            this.homeButton.Image = global::ProperDiet.Properties.Resources.icons8_home_25;
+            this.homeButton.Image = global::ProperDiet.Properties.Resources.home_25_white;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homeButton.Location = new System.Drawing.Point(4, 133);
             this.homeButton.Margin = new System.Windows.Forms.Padding(4);
@@ -172,7 +173,7 @@
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsButton.ForeColor = System.Drawing.Color.Snow;
-            this.settingsButton.Image = global::ProperDiet.Properties.Resources.icons8_settings_25;
+            this.settingsButton.Image = global::ProperDiet.Properties.Resources.settings_25_white1;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.Location = new System.Drawing.Point(4, 206);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4);

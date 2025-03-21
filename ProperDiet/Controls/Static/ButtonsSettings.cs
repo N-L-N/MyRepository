@@ -9,21 +9,56 @@ using System.Windows.Forms;
 
 namespace ProperDiet.Static
 {
-    public class ButtonsSettings
+    public static class ButtonsSettings
     {
-        public void SetButtonColorDefault(Button[] buttons)
+        private static Button[] buttons = Array.Empty<Button>();
+        public static Button activeButton = null; // Храним активную кнопку
+
+        static ButtonsSettings()
         {
-            foreach (var button in buttons)
-            {
-                button.BackColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
-                button.ForeColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
-            }
+            UiMode.OnThemeChanged += UpdateButtons;
         }
 
-        public void SetButtonColorActive(Button button)
+        public static void SetButtonColorDefault(Button[] newButtons)
         {
-            button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
-            button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            buttons = newButtons;
+            UpdateButtons();
+        }
+
+        public static void SetButtonColorActive(Button button)
+        {
+            if (activeButton != null)
+            {
+                // Возвращаем предыдущую активную кнопку в дефолтный стиль
+                activeButton.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                activeButton.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            // Устанавливаем стиль для новой активной кнопки
+            button.BackColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            button.ForeColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            activeButton = button;
+        }
+
+        private static void UpdateButtons()
+        {
+            if (buttons == null || buttons.Length == 0) return;
+
+            foreach (var button in buttons)
+            {
+                if (button == activeButton)
+                {
+                    // Активная кнопка остаётся подсвеченной даже после смены темы
+                    button.BackColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+                    button.ForeColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                }
+                else
+                {
+                    // Обычные кнопки перекрашиваются в стандартные цвета темы
+                    button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                    button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+                }
+            }
         }
     }
 

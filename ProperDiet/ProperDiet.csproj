@@ -142,34 +142,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCategoryControl.cs">
+    <Compile Include="Controls\ControlsForm\AddCategoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddCategoryControl.Designer.cs">
+    <Compile Include="Controls\ControlsForm\AddCategoryControl.Designer.cs">
       <DependentUpon>AddCategoryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddFoodControl.cs">
+    <Compile Include="Controls\ControlsForm\AddFoodControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddFoodControl.Designer.cs">
+    <Compile Include="Controls\ControlsForm\AddFoodControl.Designer.cs">
       <DependentUpon>AddFoodControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddMealEntryForm.cs">
+    <Compile Include="MyForms\AddMealEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddMealEntryForm.Designer.cs">
+    <Compile Include="MyForms\AddMealEntryForm.Designer.cs">
       <DependentUpon>AddMealEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoryFoodControl.cs">
+    <Compile Include="Controls\ControlsForm\CategoryFoodControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CategoryFoodControl.Designer.cs">
+    <Compile Include="Controls\ControlsForm\CategoryFoodControl.Designer.cs">
       <DependentUpon>CategoryFoodControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContinuationRegForm.cs">
+    <Compile Include="MyForms\ContinuationRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContinuationRegForm.Designer.cs">
+    <Compile Include="MyForms\ContinuationRegForm.Designer.cs">
       <DependentUpon>ContinuationRegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Animation\AnimPanel.cs" />
@@ -181,10 +181,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Intefaces\Blocks\IBlock.cs" />
-    <Compile Include="LogForm.cs">
+    <Compile Include="MyForms\LogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogForm.Designer.cs">
+    <Compile Include="MyForms\LogForm.Designer.cs">
       <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Category.cs" />
@@ -192,16 +192,16 @@
     <Compile Include="Models\Enums\Activity.cs" />
     <Compile Include="Models\Enums\CategoryDiet.cs" />
     <Compile Include="Models\Entity\Food.cs" />
-    <Compile Include="GeneralForm.cs">
+    <Compile Include="MyForms\GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GeneralForm.Designer.cs">
+    <Compile Include="MyForms\GeneralForm.Designer.cs">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeControl.cs">
+    <Compile Include="Controls\ControlsForm\HomeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HomeControl.Designer.cs">
+    <Compile Include="Controls\ControlsForm\HomeControl.Designer.cs">
       <DependentUpon>HomeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Intefaces\Animation\IAnimElement.cs" />
@@ -211,10 +211,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controls\Animation\AnimFlowLayotPanel.cs" />
-    <Compile Include="RegistrationForm.cs">
+    <Compile Include="MyForms\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrationForm.Designer.cs">
+    <Compile Include="MyForms\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\Calculator\CalculatorCalories.cs" />
@@ -222,34 +222,34 @@
     <Compile Include="Services\ContextBlock\ContextBlock.cs" />
     <Compile Include="Controls\Static\ButtonsSettings.cs" />
     <Compile Include="Services\Data\TxtDbContext.cs" />
-    <Compile Include="Settings.cs">
+    <Compile Include="Controls\ControlsForm\Settings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Controls\ControlsForm\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddCategoryControl.resx">
+    <EmbeddedResource Include="Controls\ControlsForm\AddCategoryControl.resx">
       <DependentUpon>AddCategoryControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddFoodControl.resx">
+    <EmbeddedResource Include="Controls\ControlsForm\AddFoodControl.resx">
       <DependentUpon>AddFoodControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddMealEntryForm.resx">
+    <EmbeddedResource Include="MyForms\AddMealEntryForm.resx">
       <DependentUpon>AddMealEntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CategoryFoodControl.resx">
+    <EmbeddedResource Include="Controls\ControlsForm\CategoryFoodControl.resx">
       <DependentUpon>CategoryFoodControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContinuationRegForm.resx">
+    <EmbeddedResource Include="MyForms\ContinuationRegForm.resx">
       <DependentUpon>ContinuationRegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GeneralForm.resx">
+    <EmbeddedResource Include="MyForms\GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeControl.resx">
+    <EmbeddedResource Include="Controls\ControlsForm\HomeControl.resx">
       <DependentUpon>HomeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogForm.resx">
+    <EmbeddedResource Include="MyForms\LogForm.resx">
       <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -262,10 +262,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegistrationForm.resx">
+    <EmbeddedResource Include="MyForms\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Controls\ControlsForm\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\config.ini" />
@@ -374,11 +374,12 @@
     <Content Include="bin\Debug\data.txt" />
     <Content Include="icons8-healthy-food-100.ico" />
     <None Include="Resources\icons8-exit-25%281%29.png" />
-    <Content Include="Sara_UI_Design.png" />
+    <None Include="Resources\home-25_white.png" />
+    <None Include="Resources\home-25_black.png" />
+    <None Include="Resources\settings-25_white.png" />
+    <None Include="Resources\settings-25_black.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Intefaces\Observers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

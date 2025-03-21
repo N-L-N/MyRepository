@@ -1,4 +1,5 @@
-﻿using ProperDiet.Entity;
+﻿using ProperDiet.Controls.Static;
+using ProperDiet.Entity;
 using ProperDiet.Models.Entity;
 using ProperDiet.Services.Data;
 using System;
@@ -27,8 +28,43 @@ namespace ProperDiet
             InitializeComponent();
 
             txtDbContext = new TxtDbContext();
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
 
+        private void ApplyTheme()
+        {
+            this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            foreach (Control control in this.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is Button button)
+            {
+                // Кнопки темные в темной теме и светлые в светлой теме
+                button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else
+            {
+                // Остальные элементы формы окрашиваются по стандартной схеме
+                control.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                control.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
+        }
         public AddMealEntryForm(int userId)
         {
             InitializeComponent();

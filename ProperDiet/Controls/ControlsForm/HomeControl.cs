@@ -1,5 +1,6 @@
 ﻿using ProperDiet.Animation;
 using ProperDiet.Controls.Blocks;
+using ProperDiet.Controls.Static;
 using ProperDiet.Entity;
 using ProperDiet.Intefaces.Animation;
 using ProperDiet.Intefaces.Blocks;
@@ -24,6 +25,12 @@ namespace ProperDiet
         public HomeControl()
         {
             InitializeComponent();
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
 
         private User user;
@@ -38,6 +45,42 @@ namespace ProperDiet
             _txtDbContext = new TxtDbContext();
 
             new ContextBlock(new MealEntryBlock(mealEntryPanel, user.Id, _txtDbContext)).CreateBlock();
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
+        }
+
+        private void ApplyTheme()
+        {
+            this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            foreach (Control control in this.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is Button button)
+            {
+                // Кнопки темные в темной теме и светлые в светлой теме
+                button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else
+            {
+                // Остальные элементы формы окрашиваются по стандартной схеме
+                control.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                control.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
         }
 
         private void HomeControl_Load(object sender, EventArgs e)
