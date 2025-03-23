@@ -33,8 +33,6 @@
             this.menuPanel = new System.Windows.Forms.Panel();
             this.maxCalories = new System.Windows.Forms.Label();
             this.NameUser = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.PagePanel = new System.Windows.Forms.Panel();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.homeButton = new System.Windows.Forms.Button();
@@ -54,11 +52,9 @@
             this.sidebarContainer.Controls.Add(this.menuPanel);
             this.sidebarContainer.Controls.Add(this.homeButton);
             this.sidebarContainer.Controls.Add(this.settingsButton);
-            this.sidebarContainer.Controls.Add(this.panel2);
             this.sidebarContainer.Controls.Add(this.addFoodButton);
             this.sidebarContainer.Controls.Add(this.addFoodCategoryButton);
             this.sidebarContainer.Controls.Add(this.foodCategoryButton);
-            this.sidebarContainer.Controls.Add(this.panel3);
             this.sidebarContainer.Controls.Add(this.helpButton);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
@@ -103,26 +99,6 @@
             this.NameUser.TabIndex = 3;
             this.NameUser.Text = "Неизвестный";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Snow;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(4, 279);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(312, 12);
-            this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Snow;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(4, 518);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(312, 12);
-            this.panel3.TabIndex = 8;
-            // 
             // PagePanel
             // 
             this.PagePanel.BackColor = System.Drawing.Color.Black;
@@ -154,7 +130,7 @@
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeButton.ForeColor = System.Drawing.Color.Snow;
-            this.homeButton.Image = global::ProperDiet.Properties.Resources.home_25_white;
+            this.homeButton.Image = global::ProperDiet.Properties.Resources.home_white;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homeButton.Location = new System.Drawing.Point(4, 133);
             this.homeButton.Margin = new System.Windows.Forms.Padding(4);
@@ -173,7 +149,7 @@
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsButton.ForeColor = System.Drawing.Color.Snow;
-            this.settingsButton.Image = global::ProperDiet.Properties.Resources.settings_25_white1;
+            this.settingsButton.Image = global::ProperDiet.Properties.Resources.settings_white;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.Location = new System.Drawing.Point(4, 206);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
@@ -192,9 +168,9 @@
             this.addFoodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addFoodButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addFoodButton.ForeColor = System.Drawing.Color.Snow;
-            this.addFoodButton.Image = global::ProperDiet.Properties.Resources.icons8_eat_25;
+            this.addFoodButton.Image = global::ProperDiet.Properties.Resources.food_white;
             this.addFoodButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addFoodButton.Location = new System.Drawing.Point(4, 299);
+            this.addFoodButton.Location = new System.Drawing.Point(4, 279);
             this.addFoodButton.Margin = new System.Windows.Forms.Padding(4);
             this.addFoodButton.Name = "addFoodButton";
             this.addFoodButton.Size = new System.Drawing.Size(299, 65);
@@ -211,9 +187,9 @@
             this.addFoodCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addFoodCategoryButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addFoodCategoryButton.ForeColor = System.Drawing.Color.Snow;
-            this.addFoodCategoryButton.Image = global::ProperDiet.Properties.Resources.icons8_add_25;
+            this.addFoodCategoryButton.Image = global::ProperDiet.Properties.Resources.add_white;
             this.addFoodCategoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addFoodCategoryButton.Location = new System.Drawing.Point(4, 372);
+            this.addFoodCategoryButton.Location = new System.Drawing.Point(4, 352);
             this.addFoodCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.addFoodCategoryButton.Name = "addFoodCategoryButton";
             this.addFoodCategoryButton.Size = new System.Drawing.Size(299, 65);
@@ -230,9 +206,9 @@
             this.foodCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.foodCategoryButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foodCategoryButton.ForeColor = System.Drawing.Color.Snow;
-            this.foodCategoryButton.Image = global::ProperDiet.Properties.Resources.icons8_category_25;
+            this.foodCategoryButton.Image = global::ProperDiet.Properties.Resources.category_white;
             this.foodCategoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.foodCategoryButton.Location = new System.Drawing.Point(4, 445);
+            this.foodCategoryButton.Location = new System.Drawing.Point(4, 425);
             this.foodCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.foodCategoryButton.Name = "foodCategoryButton";
             this.foodCategoryButton.Size = new System.Drawing.Size(299, 65);
@@ -249,9 +225,9 @@
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpButton.ForeColor = System.Drawing.Color.Snow;
-            this.helpButton.Image = global::ProperDiet.Properties.Resources.icons8_help_25;
+            this.helpButton.Image = global::ProperDiet.Properties.Resources.help_white;
             this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(4, 538);
+            this.helpButton.Location = new System.Drawing.Point(4, 498);
             this.helpButton.Margin = new System.Windows.Forms.Padding(4);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(299, 65);
@@ -295,10 +271,8 @@
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox menuButton;
         private System.Windows.Forms.Button foodCategoryButton;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Button addFoodButton;
         private System.Windows.Forms.Button addFoodCategoryButton;

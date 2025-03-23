@@ -1,4 +1,5 @@
-﻿using ProperDiet.Intefaces.Blocks;
+﻿using ProperDiet.Controls.Static;
+using ProperDiet.Intefaces.Blocks;
 using ProperDiet.Services;
 using ProperDiet.Services.Data;
 using System;
@@ -16,15 +17,15 @@ namespace ProperDiet.Controls.Blocks
     {
         private readonly FlowLayoutPanel _blocksAdder;
         private List<Entity.Category> _categories;
-
         private TxtDbContext txtDb;
 
         public CategoryBlock(FlowLayoutPanel blocksAdder)
         {
             _blocksAdder = blocksAdder;
             _blocksAdder.Controls.Clear();
-
             txtDb = new TxtDbContext("data.txt");
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
 
         public async void CreateBlockAsync()
@@ -32,13 +33,14 @@ namespace ProperDiet.Controls.Blocks
             try
             {
                 await LoadCategoriesAsync();
+                ApplyTheme();
             }
             catch (Exception)
             {
                 _blocksAdder.Controls.Add(new Label()
                 {
                     Text = "Страница не загружена",
-                    ForeColor = Color.LightGray,
+                    ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
                     Font = new Font("Arial", 12f),
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true
@@ -48,28 +50,27 @@ namespace ProperDiet.Controls.Blocks
 
         private async Task LoadCategoriesAsync()
         {
-            var categories = await Task.Run(() => txtDb.GetCategories());
-            _categories = categories;
-
-            foreach (var category in categories)
+            _categories = await Task.Run(() => txtDb.GetCategories());
+            foreach (var category in _categories)
             {
-                AddCategoryBlock(category.Name, category.Description);
+                AddCategoryBlock(category.Name, category.Description, category.Id);
             }
         }
 
-        private void AddCategoryBlock(string name, string description)
+        private void AddCategoryBlock(string name, string description, int categoryId)
         {
             GroupBox categoryBlock = new GroupBox
             {
                 Text = name,
-                ForeColor = Color.LightGray,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
                 Location = new Point(3, 3),
                 Name = "CategoryBlock",
                 Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 204),
                 Size = new Size(190, 220),
                 TabIndex = 0,
                 TabStop = false,
-                BackColor = Color.FromArgb(31, 30, 45)
+                BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow,
+                Tag = categoryId // Сохраняем ID категории в Tag
             };
 
             Label descriptionLabel = new Label
@@ -81,10 +82,13 @@ namespace ProperDiet.Controls.Blocks
                 Name = "descriptionLabel",
                 TabIndex = 1,
                 Text = description,
-                TextAlign = ContentAlignment.MiddleLeft
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black
             };
 
             categoryBlock.Controls.Add(descriptionLabel);
+
+            // Подключаем события клика, наведения и выхода
             categoryBlock.MouseClick += CategoryBlock_MouseClick;
             categoryBlock.MouseMove += CategoryBlock_MouseMove;
             categoryBlock.MouseLeave += CategoryBlock_MouseLeave;
@@ -94,24 +98,59 @@ namespace ProperDiet.Controls.Blocks
 
         private void CategoryBlock_MouseClick(object sender, MouseEventArgs e)
         {
-            var myGroupBox = sender as GroupBox;
-            myGroupBox.BackColor = Color.FromArgb(40, 37, 50);
-
-            foreach (var category in _categories)
+            if (sender is GroupBox categoryBlock)
             {
-                if (category.Name == myGroupBox.Text)
-                {
-                    new ContextBlock(new FoodBlock(category.Id, _blocksAdder))
-                        .CreateBlock();
-                    return;
-                }
+                int categoryId = (int)categoryBlock.Tag; // Получаем ID категории
+
+                categoryBlock.BackColor = UiMode.IsDarkMode ? Color.FromArgb(40, 37, 50) : Color.FromArgb(200, 200, 200);
+
+                // Открываем FoodBlock с выбранной категорией
+                new ContextBlock(new FoodBlock(categoryId, _blocksAdder)).CreateBlock();
             }
         }
 
-        private void CategoryBlock_MouseLeave(object sender, EventArgs e) =>
-            (sender as GroupBox).BackColor = Color.FromArgb(31, 30, 45);
+        private void CategoryBlock_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is GroupBox categoryBlock)
+            {
+                categoryBlock.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            }
+        }
 
-        private void CategoryBlock_MouseMove(object sender, MouseEventArgs e) =>
-            (sender as GroupBox).BackColor = Color.FromArgb(20, 25, 45);
+        private void CategoryBlock_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (sender is GroupBox categoryBlock)
+            {
+                categoryBlock.BackColor = UiMode.IsDarkMode ? Color.FromArgb(20, 25, 45) : Color.FromArgb(230, 230, 230);
+            }
+        }
+
+        private void ApplyTheme()
+        {
+            _blocksAdder.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+
+            foreach (Control control in _blocksAdder.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is GroupBox groupBox)
+            {
+                groupBox.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                groupBox.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else if (control is Label label)
+            {
+                label.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
+        }
     }
 }

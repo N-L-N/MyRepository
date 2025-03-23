@@ -373,6 +373,18 @@
   <ItemGroup>
     <Content Include="bin\Debug\data.txt" />
     <Content Include="icons8-healthy-food-100.ico" />
+    <None Include="Resources\home_black.png" />
+    <None Include="Resources\home_white.png" />
+    <None Include="Resources\settings_black.png" />
+    <None Include="Resources\settings_white.png" />
+    <None Include="Resources\food_black.png" />
+    <None Include="Resources\food_white.png" />
+    <None Include="Resources\add_black.png" />
+    <None Include="Resources\add_white.png" />
+    <None Include="Resources\category_black.png" />
+    <None Include="Resources\category_white.png" />
+    <None Include="Resources\help_black.png" />
+    <None Include="Resources\help_white.png" />
     <None Include="Resources\icons8-exit-25%281%29.png" />
     <None Include="Resources\home-25_white.png" />
     <None Include="Resources\home-25_black.png" />

@@ -69,6 +69,12 @@ namespace ProperDiet
             InitializeComponent();
 
             txtDbContext = new TxtDbContext();
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
 
         private void RegButton_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using ProperDiet.Animation;
+using ProperDiet.Controls.Static;
 using ProperDiet.Entity;
 using ProperDiet.Intefaces.Animation;
 using ProperDiet.Intefaces.Blocks;
@@ -16,16 +17,18 @@ namespace ProperDiet.Controls.Blocks
 {
     internal class MealEntryBlock : IBlock
     {
-        private readonly Panel _container; // Панель-контейнер для блоков
-        private readonly int _userId; // ID пользователя для загрузки данных
-        private readonly TxtDbContext _dbContext; // Контекст базы данных
+        private readonly Panel _container;
+        private readonly int _userId;
+        private readonly TxtDbContext _dbContext;
 
         public MealEntryBlock(Panel container, int userId, TxtDbContext dbContext)
         {
             _container = container;
-            _container.Controls.Clear(); // Очищаем перед добавлением блоков
+            _container.Controls.Clear();
             _userId = userId;
             _dbContext = dbContext;
+
+            UiMode.OnThemeChanged += ApplyTheme; // Подписываемся на смену темы
         }
 
         public async void CreateBlockAsync()
@@ -33,11 +36,13 @@ namespace ProperDiet.Controls.Blocks
             try
             {
                 var mealEntries = await LoadMealEntriesAsync();
-                if (mealEntries == null)
+                if (mealEntries == null) // Исправлено для C# 7.3
                 {
-                    mealEntries = new List<MealEntry>();  // Защита от null
+                    mealEntries = new List<MealEntry>();
                 }
+
                 AddBlocks(mealEntries);
+                ApplyTheme(); // Применяем тему после создания блоков
             }
             catch (Exception ex)
             {
@@ -52,108 +57,92 @@ namespace ProperDiet.Controls.Blocks
             }
         }
 
-
         private async Task<List<MealEntry>> LoadMealEntriesAsync()
         {
-            // Загружаем записи из базы данных
             return await Task.Run(() => _dbContext.GetMealEntriesByUserId(_userId));
         }
 
         private void AddBlocks(List<MealEntry> mealEntries)
         {
-            int yOffset = 10; // Начальный отступ сверху
+            int yOffset = 10;
 
-            // Группируем записи по дате
             var groupedEntries = mealEntries.GroupBy(entry => entry.Date.Date);
 
             foreach (var group in groupedEntries)
             {
-                // Формируем список еды для текущей даты
                 var foodDetails = group
                     .Select(entry => _dbContext.GetFoodById(entry.FoodId))
                     .Where(food => food != null)
-                    .Select(food => (food.Name, food.Description, food.Calories)) // Добавляем калории
+                    .Select(food => (food.Name, food.Description, food.Calories))
                     .ToList();
 
                 if (foodDetails.Count > 0)
                 {
-                    var totalCalories = foodDetails.Sum(fd => fd.Calories); // Считаем калории за день
+                    var totalCalories = foodDetails.Sum(fd => fd.Calories);
                     var block = CreateBlock(group.Key, foodDetails, totalCalories, yOffset);
                     _container.Controls.Add(block);
-                    yOffset += block.Height + 10; // Смещение для следующего блока
+                    yOffset += block.Height + 10;
                 }
             }
 
             _container.Controls.Add(AddPanelAdding());
         }
 
-
-
-
         private Panel AddPanelAdding()
         {
             Panel addPanel = new Panel()
             {
-                BackColor = Color.FromArgb(31, 30, 45),
                 Dock = DockStyle.Top,
                 Size = new Size(0, 100),
                 BorderStyle = BorderStyle.FixedSingle,
                 Padding = new Padding(10),
             };
+
             Button addButton = new Button()
             {
-                ForeColor = Color.LightGray,
                 Text = "Добавить еду",
                 Size = new Size(400, 50),
                 FlatStyle = FlatStyle.Flat,
-                BackColor = Color.FromArgb(31, 30, 45)
             };
 
             addPanel.Controls.Add(addButton);
-
             CenterButton(addButton, addPanel);
 
-            addPanel.Resize += (sender, e) =>
-            {
-                CenterButton(addButton, addPanel);
-            };
+            addPanel.Resize += (sender, e) => CenterButton(addButton, addPanel);
 
             addButton.Click += (sender, e) =>
             {
                 using (var addForm = new AddMealEntryForm(_userId))
                 {
-                    if (addForm.ShowDialog() == DialogResult.OK) // Проверяем результат формы
+                    if (addForm.ShowDialog() == DialogResult.OK)
                     {
-                        // Обновляем содержимое панели после добавления записи
                         ReloadBlocks();
                     }
                 }
             };
 
+            ApplyThemeToControl(addPanel);
             return addPanel;
         }
 
         private void ReloadBlocks()
         {
-            _container.Controls.Clear(); // Удаляем все элементы с панели
-            CreateBlockAsync(); // Пересоздаем блоки
+            _container.Controls.Clear();
+            CreateBlockAsync();
         }
-
 
         private void CenterButton(Button button, Panel panel)
         {
             button.Location = new Point(
-                (panel.Width - button.Width) / 2, // Центр по горизонтали
-                (panel.Height - button.Height) / 2 // Центр по вертикали
+                (panel.Width - button.Width) / 2,
+                (panel.Height - button.Height) / 2
             );
         }
 
         private Panel CreateBlock(DateTime date, List<(string Name, string Description, int Calories)> foodDetails, int totalCalories, int yOffset)
         {
-            // Панель для одного блока
             Panel blockPanel = new Panel
             {
-                BackColor = Color.FromArgb(31, 30, 45),
                 Dock = DockStyle.Top,
                 Size = new Size(0, 100),
                 Location = new Point(10, yOffset),
@@ -161,64 +150,71 @@ namespace ProperDiet.Controls.Blocks
                 Padding = new Padding(10),
             };
 
-            // Метка с датой
             Label dateLabel = new Label
             {
                 Text = $"Дата: {date:dd MMMM yyyy}",
                 Font = new Font("Microsoft Sans Serif", 14f),
-                ForeColor = Color.LightGray,
                 AutoSize = true,
                 Dock = DockStyle.Top
             };
             blockPanel.Controls.Add(dateLabel);
 
-            // Описание еды
             Label descriptionLabel = new Label
             {
                 Font = new Font("Microsoft Sans Serif", 12F),
-                ForeColor = Color.LightGray,
                 AutoSize = true,
                 Location = new Point(10, 50)
             };
 
-            // Формируем текст описания еды
             var descriptionText = string.Join("\n", foodDetails.Select(fd => $"Еда: {fd.Name}\nОписание: {fd.Description}\n"));
             descriptionLabel.Text = descriptionText;
-
             blockPanel.Controls.Add(descriptionLabel);
 
-            // Метка с калориями
             Label caloriesLabel = new Label
             {
                 Text = $"Общее количество калорий: {totalCalories}",
                 Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
-                ForeColor = Color.LightGray,
                 AutoSize = true,
                 Location = new Point(10, descriptionLabel.Bottom + 10),
             };
             blockPanel.Controls.Add(caloriesLabel);
 
-            // Корректируем размер панели в зависимости от расположения калорий
             blockPanel.Size = new Size(blockPanel.Width, caloriesLabel.Bottom + 10);
 
+            ApplyThemeToControl(blockPanel);
             return blockPanel;
         }
 
-
-        private void UpdateButtonPosition(Button button, Panel panel)
+        private void ApplyTheme()
         {
-            button.Location = new Point(
-                panel.Width - button.Width - panel.Padding.Right,
-                panel.Padding.Top
-            );
+            _container.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+
+            foreach (Control control in _container.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
         }
 
-        private void UpdateLabelRightPosition(Label label, Panel panel)
+        private void ApplyThemeToControl(Control control)
         {
-            label.Location = new Point(
-                panel.Width - label.Width - panel.Padding.Right, // Расположить по правому краю с учётом отступа
-                panel.Height - label.Height - panel.Padding.Bottom // Расположить по нижнему краю с учётом отступа
-            );
+            if (control is Panel panel)
+            {
+                panel.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+            }
+            else if (control is Button button)
+            {
+                button.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                button.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else if (control is Label label)
+            {
+                label.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
         }
     }
 }

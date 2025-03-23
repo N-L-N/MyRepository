@@ -1,6 +1,7 @@
 ﻿using ProperDiet.Controls.Static;
 using ProperDiet.Intefaces.Animation;
 using ProperDiet.Models.Entity;
+using ProperDiet.Properties;
 using ProperDiet.Services.Calculator;
 using ProperDiet.Services.Data;
 using ProperDiet.Static;
@@ -32,9 +33,13 @@ namespace ProperDiet
         private CalculatorCalories calculator;
         private TxtDbContext _txtDbContext;
 
+        private Bitmap[] imagesWhite;
+        private Bitmap[] imagesBlack;
+
         public GeneralForm(User user, Human human)
         {
             InitializeComponent();
+            InitializeBitmapResources();
 
             _user = user;
             _human = human;
@@ -55,6 +60,29 @@ namespace ProperDiet
             CalculateCalories(); // Сразу считаем калории
         }
 
+        private void InitializeBitmapResources()
+        {
+            imagesBlack = new Bitmap[]
+            {
+                Resources.home_black,
+                Resources.settings_black,
+                Resources.food_black,
+                Resources.add_black,
+                Resources.category_black,
+                Resources.help_black
+            };
+
+            imagesWhite = new Bitmap[]
+            {
+                Resources.home_white,
+                Resources.settings_white,
+                Resources.food_white,
+                Resources.add_white,
+                Resources.category_white,
+                Resources.help_white
+            };
+        }
+
         private void ApplyTheme()
         {
             this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
@@ -64,6 +92,9 @@ namespace ProperDiet
             {
                 ApplyThemeToControl(control);
             }
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             foreach (var buttons in GetAllButtons(this))
             {
                 if (ButtonsSettings.activeButton == buttons)
@@ -127,10 +158,28 @@ namespace ProperDiet
             CalculateCalories();
         }
 
+        private void ActiveImageButton(Button[] buttons, Bitmap[] imageWhite, Bitmap[] imageBlack)
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (ButtonsSettings.activeButton == buttons[i])
+                {
+                    buttons[i].Image = UiMode.IsDarkMode ? imageBlack[i] : imageWhite[i];
+                }
+                else
+                {
+                    buttons[i].Image = UiMode.IsDarkMode ? imageWhite[i] : imageBlack[i];
+                }
+            }
+        }
+
         private void HomeButton_Click(object sender, EventArgs e)
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
             ButtonsSettings.SetButtonColorActive(homeButton);
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             LoadControl(new HomeControl(_user));
         }
 
@@ -138,6 +187,9 @@ namespace ProperDiet
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
             ButtonsSettings.SetButtonColorActive(settingsButton);
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             LoadControl(new Settings());
         }
 
@@ -145,6 +197,9 @@ namespace ProperDiet
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
             ButtonsSettings.SetButtonColorActive(addFoodButton);
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             LoadControl(new AddFoodControl());
         }
 
@@ -152,6 +207,9 @@ namespace ProperDiet
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
             ButtonsSettings.SetButtonColorActive(addFoodCategoryButton);
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             LoadControl(new AddCategoryControl());
         }
 
@@ -159,6 +217,9 @@ namespace ProperDiet
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
             ButtonsSettings.SetButtonColorActive(foodCategoryButton);
+
+            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
+
             LoadControl(new CategoryFoodControl());
         }
 
@@ -176,21 +237,25 @@ namespace ProperDiet
         {
             return parent.Controls
                          .OfType<Button>()
-                         .Concat(parent.Controls.OfType<Panel>().SelectMany(GetAllButtons))
-                         .Concat(parent.Controls.OfType<GroupBox>().SelectMany(GetAllButtons))
+                         .Concat(parent.Controls.OfType<Panel>()
+                         .SelectMany(GetAllButtons))
+                         .Concat(parent.Controls.OfType<GroupBox>()
+                         .SelectMany(GetAllButtons))
                          .ToArray();
         }
 
         private IEnumerable<Button> GetAllButtons(Panel panel)
         {
             return panel.Controls.OfType<Button>()
-                  .Concat(panel.Controls.OfType<Panel>().SelectMany(GetAllButtons));
+                  .Concat(panel.Controls.OfType<Panel>()
+                  .SelectMany(GetAllButtons));
         }
 
         private IEnumerable<Button> GetAllButtons(GroupBox groupBox)
         {
             return groupBox.Controls.OfType<Button>()
-                  .Concat(groupBox.Controls.OfType<Panel>().SelectMany(GetAllButtons));
+                  .Concat(groupBox.Controls.OfType<Panel>()
+                  .SelectMany(GetAllButtons));
         }
 
         private void PagePanel_Paint(object sender, PaintEventArgs e)

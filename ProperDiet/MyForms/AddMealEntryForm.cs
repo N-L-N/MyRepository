@@ -28,6 +28,7 @@ namespace ProperDiet
             InitializeComponent();
 
             txtDbContext = new TxtDbContext();
+
             UiMode.Update();
 
             ApplyTheme();
@@ -72,6 +73,12 @@ namespace ProperDiet
             txtDbContext = new TxtDbContext();
 
             user = txtDbContext.GetUserById(userId);
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
         public AddMealEntryForm(User user)
         {
@@ -80,6 +87,12 @@ namespace ProperDiet
             txtDbContext = new TxtDbContext();
 
             this.user = user;
+
+            UiMode.Update();
+
+            ApplyTheme();
+
+            UiMode.OnThemeChanged += ApplyTheme;
         }
         private async Task LoadCategoriesToComboBoxAsync(ComboBox comboBox)
         {

@@ -1,4 +1,5 @@
-﻿using ProperDiet.Intefaces.Blocks;
+﻿using ProperDiet.Controls.Static;
+using ProperDiet.Intefaces.Blocks;
 using ProperDiet.Services;
 using ProperDiet.Services.Data;
 using System;
@@ -27,6 +28,8 @@ namespace ProperDiet.Controls.Blocks
             _blocksAdder.Controls.Clear();
 
             txtDbContext = new TxtDbContext("data.txt");
+
+            UiMode.OnThemeChanged += ApplyTheme; // Подписываемся на смену темы
         }
 
         public async void CreateBlockAsync()
@@ -34,13 +37,14 @@ namespace ProperDiet.Controls.Blocks
             try
             {
                 await LoadFoodsAsync();
+                ApplyTheme(); // Применяем тему после загрузки блоков
             }
             catch (Exception)
             {
                 _blocksAdder.Controls.Add(new Label()
                 {
                     Text = "Страница не загружена",
-                    ForeColor = Color.LightGray,
+                    ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
                     Font = new Font("Arial", 12f),
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true
@@ -66,14 +70,14 @@ namespace ProperDiet.Controls.Blocks
             GroupBox foodBlock = new GroupBox
             {
                 Text = "Назад",
-                ForeColor = Color.LightGray,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
                 Location = new Point(3, 3),
                 Name = "FoodBlock",
                 Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 204),
                 Size = new Size(190, 220),
                 TabIndex = 0,
                 TabStop = false,
-                BackColor = Color.FromArgb(31, 30, 45)
+                BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow
             };
 
             Label backLabel = new Label
@@ -85,7 +89,8 @@ namespace ProperDiet.Controls.Blocks
                 Name = "descriptionLabel",
                 TabIndex = 1,
                 Text = $"Вернуться назад",
-                TextAlign = ContentAlignment.MiddleLeft
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black
             };
 
             foodBlock.Controls.Add(backLabel);
@@ -98,18 +103,18 @@ namespace ProperDiet.Controls.Blocks
 
         private void FoodBlock_MouseLeave(object sender, EventArgs e)
         {
-            (sender as GroupBox).BackColor = Color.FromArgb(31, 30, 45);
+            (sender as GroupBox).BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
         }
 
         private void FoodBlock_MouseMove(object sender, MouseEventArgs e)
         {
-            (sender as GroupBox).BackColor = Color.FromArgb(20, 25, 45);
+            (sender as GroupBox).BackColor = UiMode.IsDarkMode ? Color.FromArgb(20, 25, 45) : Color.FromArgb(230, 230, 230);
         }
 
         private void FoodBlock_Click(object sender, EventArgs e)
         {
             var myGroupBox = sender as GroupBox;
-            myGroupBox.BackColor = Color.FromArgb(40, 37, 50);
+            myGroupBox.BackColor = UiMode.IsDarkMode ? Color.FromArgb(40, 37, 50) : Color.FromArgb(200, 200, 200);
 
             new ContextBlock(new CategoryBlock(_blocksAdder)).CreateBlock();
         }
@@ -119,14 +124,14 @@ namespace ProperDiet.Controls.Blocks
             GroupBox foodBlock = new GroupBox
             {
                 Text = name,
-                ForeColor = Color.LightGray,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
                 Location = new Point(3, 3),
                 Name = "FoodBlock",
                 Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 204),
                 Size = new Size(190, 220),
                 TabIndex = 0,
                 TabStop = false,
-                BackColor = Color.FromArgb(31, 30, 45)
+                BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow
             };
 
             Label descriptionLabel = new Label
@@ -138,11 +143,40 @@ namespace ProperDiet.Controls.Blocks
                 Name = "descriptionLabel",
                 TabIndex = 1,
                 Text = $"{description}\n\n{calories} кал. на 100г(мл).",
-                TextAlign = ContentAlignment.MiddleLeft
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black
             };
 
             foodBlock.Controls.Add(descriptionLabel);
             _blocksAdder.Controls.Add(foodBlock);
+        }
+
+        private void ApplyTheme()
+        {
+            _blocksAdder.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+
+            foreach (Control control in _blocksAdder.Controls)
+            {
+                ApplyThemeToControl(control);
+            }
+        }
+
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is GroupBox groupBox)
+            {
+                groupBox.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
+                groupBox.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else if (control is Label label)
+            {
+                label.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyThemeToControl(child);
+            }
         }
     }
 }
