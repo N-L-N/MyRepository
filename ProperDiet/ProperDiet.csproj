@@ -154,6 +154,19 @@
     <Compile Include="Controls\ControlsForm\AddFoodControl.Designer.cs">
       <DependentUpon>AddFoodControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\CategoryUser.cs" />
+    <Compile Include="MyForms\AddCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\AddCategoryForm.Designer.cs">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\AddFoodInCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForms\AddFoodInCategory.Designer.cs">
+      <DependentUpon>AddFoodInCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForms\AddMealEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +246,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ControlsForm\AddFoodControl.resx">
       <DependentUpon>AddFoodControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\AddCategoryForm.resx">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForms\AddFoodInCategory.resx">
+      <DependentUpon>AddFoodInCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForms\AddMealEntryForm.resx">
       <DependentUpon>AddMealEntryForm.cs</DependentUpon>
@@ -373,6 +392,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\data.txt" />
     <Content Include="icons8-healthy-food-100.ico" />
+    <None Include="Resources\forButtonAdd_black.png" />
+    <None Include="Resources\forButtonAdd_white.png" />
     <None Include="Resources\home_black.png" />
     <None Include="Resources\home_white.png" />
     <None Include="Resources\settings_black.png" />

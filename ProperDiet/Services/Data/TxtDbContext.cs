@@ -1,14 +1,10 @@
 ﻿using ProperDiet.Entity;
 using ProperDiet.Models.Entity;
 using ProperDiet.Models.Enums;
-using ProperDiet.Services.Comparers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProperDiet.Services.Data
 {
@@ -216,9 +212,6 @@ namespace ProperDiet.Services.Data
         }
 
 
-
-
-
         /// <summary>
         /// Получить последний ID еды.
         /// </summary>
@@ -286,10 +279,6 @@ namespace ProperDiet.Services.Data
             return null;
         }
 
-
-
-
-
         /// <summary>
         /// Поиск индекса категории по имени.
         /// </summary>
@@ -310,6 +299,35 @@ namespace ProperDiet.Services.Data
             }
 
             throw new KeyNotFoundException($"Категория с именем '{categoryName}' не найдена.");
+        }
+
+        /// <summary>
+        /// Поиск категории по имени
+        /// </summary>
+
+        public Category FindCategoryByName(string categoryName)
+        {
+            var lines = File.ReadAllLines(_filePath);
+
+            // Поиск строки категории
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line)) continue;
+
+                var parts = line.Split(';');
+                if (parts.Length >= 2 && parts[1].Equals(categoryName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return new Category
+                    {
+                        Id = int.Parse(parts[0]),
+                        Name = parts[1],
+                        Description = parts[2],
+                        Foods = GetFoodsByCategory(int.Parse(parts[0]))
+                    }; 
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -733,15 +751,6 @@ namespace ProperDiet.Services.Data
 
             return mealEntries;
         }
-
-
-
-
-
-        /// <summary>
-        /// Получить последний ID MealEntry.
-        /// </summary>
-        /// <summary>
         /// Получить последний идентификатор записи о приеме пищи.
         /// </summary>
         /// <returns>Последний идентификатор записи о приеме пищи или 1, если записей нет.</returns>
@@ -766,7 +775,5 @@ namespace ProperDiet.Services.Data
 
             return lastMealEntryId;
         }
-
-
     }}
 

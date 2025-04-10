@@ -28,7 +28,7 @@ namespace ProperDiet
             Init(); // Вызываем метод инициализации
         }
         private IAnimElement animElement;
-        private User _user;
+        private readonly User _user;
         private Human _human;
         private CalculatorCalories calculator;
         private TxtDbContext _txtDbContext;
@@ -192,27 +192,6 @@ namespace ProperDiet
 
             LoadControl(new Settings());
         }
-
-        private void AddFoodButton_Click(object sender, EventArgs e)
-        {
-            ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
-            ButtonsSettings.SetButtonColorActive(addFoodButton);
-
-            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
-
-            LoadControl(new AddFoodControl());
-        }
-
-        private void AddFoodCategoryButton_Click(object sender, EventArgs e)
-        {
-            ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));
-            ButtonsSettings.SetButtonColorActive(addFoodCategoryButton);
-
-            ActiveImageButton(GetAllButtons(this), imagesWhite, imagesBlack);
-
-            LoadControl(new AddCategoryControl());
-        }
-
         private void FoodCategoryButton_Click(object sender, EventArgs e)
         {
             ButtonsSettings.SetButtonColorDefault(GetAllButtons(this));

@@ -219,5 +219,3 @@ namespace ProperDiet.Controls.Blocks
     }
 }
 
-
-

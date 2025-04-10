@@ -133,6 +133,26 @@ namespace ProperDiet.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap forButtonAdd_black {
+            get {
+                object obj = ResourceManager.GetObject("forButtonAdd_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forButtonAdd_white {
+            get {
+                object obj = ResourceManager.GetObject("forButtonAdd_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help_black {
             get {
                 object obj = ResourceManager.GetObject("help_black", resourceCulture);

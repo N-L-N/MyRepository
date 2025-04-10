@@ -1,5 +1,6 @@
 ﻿using ProperDiet.Controls.Static;
 using ProperDiet.Intefaces.Blocks;
+using ProperDiet.MyForms;
 using ProperDiet.Services;
 using ProperDiet.Services.Data;
 using System;
@@ -55,14 +56,65 @@ namespace ProperDiet.Controls.Blocks
         private async Task LoadFoodsAsync()
         {
             var foods = await Task.Run(() => txtDbContext.GetFoods());
-            var filteredFoods = foods.Where(f => f.CategoryId == _categoryId).ToList();
+            var filteredFoods = foods
+                .Where(f => f.CategoryId == _categoryId)
+                .ToList();
 
             foreach (var food in filteredFoods)
             {
                 AddFoodBlock(food.Name, food.Description, food.Calories.ToString());
             }
 
+            CreateAddFoodBlock();
+
             BackCategory();
+        }
+        private void CreateAddFoodBlock()
+        {
+            GroupBox foodBlock = new GroupBox
+            {
+                Text = "Добавить",
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black,
+                Location = new Point(3, 3),
+                Name = "FoodBlock",
+                Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 204),
+                Size = new Size(190, 220),
+                TabIndex = 0,
+                TabStop = false,
+                BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow
+            };
+
+            Label backLabel = new Label
+            {
+                AutoSize = true,
+                MaximumSize = new Size(150, 0),
+                Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204),
+                Location = new Point(6, 20),
+                Name = "descriptionLabel",
+                TabIndex = 1,
+                Text = $"Добавить еду",
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black
+            };
+
+            foodBlock.Controls.Add(backLabel);
+            _blocksAdder.Controls.Add(foodBlock);
+
+            foodBlock.MouseMove += FoodBlock_MouseMove;
+            foodBlock.MouseLeave += FoodBlock_MouseLeave;
+
+            foodBlock.Click += AdderBlock_Click;
+        }
+
+        private void AdderBlock_Click(object sender, EventArgs e)
+        {
+            AddFoodInCategory addFoodInCategory = new AddFoodInCategory(txtDbContext, _categoryId);
+
+            addFoodInCategory.ShowDialog();
+
+            _blocksAdder.Controls.Clear();
+
+            CreateBlockAsync();
         }
 
         private void BackCategory()

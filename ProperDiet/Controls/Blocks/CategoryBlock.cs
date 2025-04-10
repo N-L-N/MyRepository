@@ -1,5 +1,8 @@
 ﻿using ProperDiet.Controls.Static;
+using ProperDiet.Entity;
 using ProperDiet.Intefaces.Blocks;
+using ProperDiet.MyForms;
+using ProperDiet.Properties;
 using ProperDiet.Services;
 using ProperDiet.Services.Data;
 using System;
@@ -10,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ProperDiet.Controls.Blocks
 {
@@ -55,6 +59,34 @@ namespace ProperDiet.Controls.Blocks
             {
                 AddCategoryBlock(category.Name, category.Description, category.Id);
             }
+            AddCategoryButton();
+        }
+
+        private void AddCategoryButton()
+        {
+            Button buttonAdd = new Button
+            {
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Size = new Size(190, 220),
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.Transparent,
+                Image = Resources.forButtonAdd_white
+            };
+
+            buttonAdd.Click += ButtonAdd_Click;
+
+            _blocksAdder.Controls.Add(buttonAdd);
+        }
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            AddCategoryForm category = new AddCategoryForm();
+
+            category.ShowDialog();
+
+            _blocksAdder.Controls.Clear();
+
+            CreateBlockAsync();
         }
 
         private void AddCategoryBlock(string name, string description, int categoryId)
@@ -145,6 +177,10 @@ namespace ProperDiet.Controls.Blocks
             else if (control is Label label)
             {
                 label.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+            }
+            else if (control is Button button)
+            {
+                button.Image = UiMode.IsDarkMode ? Resources.forButtonAdd_white : Resources.forButtonAdd_black;
             }
 
             foreach (Control child in control.Controls)
