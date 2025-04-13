@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ProperDiet.Controls.Static;
+using ProperDiet.Properties;
 
 
 namespace ProperDiet
@@ -79,7 +80,7 @@ namespace ProperDiet
         {
             myToggleButton1.CheckState = CheckState.Unchecked;
 
-            exitButton.Image = Image.FromFile("F:\\ProperDiet\\ProperDiet\\Resources\\icons8-exit-25(1).png");
+            exitButton.Image = Resources.icons8_exit_25_1_;
             exitButton.ForeColor = Color.Black;
 
             this.ForeColor = Color.Black;
@@ -92,7 +93,7 @@ namespace ProperDiet
         {
             myToggleButton1.CheckState = CheckState.Checked;
 
-            exitButton.Image = Image.FromFile("F:\\ProperDiet\\ProperDiet\\Resources\\icons8-exit-25.png");
+            exitButton.Image = Resources.icons8_exit_25;
             exitButton.ForeColor = Color.Snow;
 
             this.ForeColor = Color.Snow;
