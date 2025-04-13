@@ -142,18 +142,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ControlsForm\AddCategoryControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ControlsForm\AddCategoryControl.Designer.cs">
-      <DependentUpon>AddCategoryControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ControlsForm\AddFoodControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ControlsForm\AddFoodControl.Designer.cs">
-      <DependentUpon>AddFoodControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entity\CategoryUser.cs" />
     <Compile Include="MyForms\AddCategoryForm.cs">
       <SubType>Form</SubType>
@@ -241,12 +229,6 @@
     <Compile Include="Controls\ControlsForm\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Controls\ControlsForm\AddCategoryControl.resx">
-      <DependentUpon>AddCategoryControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ControlsForm\AddFoodControl.resx">
-      <DependentUpon>AddFoodControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MyForms\AddCategoryForm.resx">
       <DependentUpon>AddCategoryForm.cs</DependentUpon>
     </EmbeddedResource>

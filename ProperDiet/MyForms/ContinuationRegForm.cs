@@ -96,7 +96,7 @@ namespace ProperDiet
             }
             Human human = new Human()
             {
-                Id = txtDbContext.GetLastHumanId(),
+                Id = txtDbContext.GetLastHumanId() + 1,
                 Height = (double)heightNumeric.Value,
                 Age = (int)ageNumeric.Value,
                 Weight = (int)weightNumeric.Value,
