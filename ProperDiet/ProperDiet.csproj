@@ -371,6 +371,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\data.txt" />
     <Content Include="icons8-healthy-food-100.ico" />
+    <None Include="Resources\back_black.png" />
+    <None Include="Resources\back_white.png" />
     <None Include="Resources\burger_white.png" />
     <None Include="Resources\burger_black.png" />
     <None Include="Resources\forButtonAdd_black.png" />

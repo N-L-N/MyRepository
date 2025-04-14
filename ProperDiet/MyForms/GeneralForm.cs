@@ -34,6 +34,8 @@ namespace ProperDiet
         private CalculatorCalories calculator;
         private TxtDbContext _txtDbContext;
 
+        private DateTime _lastNotificationTime = DateTime.MinValue;
+
         private Bitmap[] imagesWhite;
         private Bitmap[] imagesBlack;
 
@@ -156,13 +158,28 @@ namespace ProperDiet
                     totalCalories = foodDetails.Sum(fd => fd.Calories);
                 }
 
-                if(maxCaloriesNumber < totalCalories)
+                if (maxCaloriesNumber < totalCalories)
+                {
+                    ShowNotification("⚠️ Превышение калорий", $"Вы превысили лимит на {totalCalories - maxCaloriesNumber} ккал!");
                     maxCalories.Text = $"Лимит превышен на {Math.Abs(maxCaloriesNumber - totalCalories)} кл";
+                }
                 else
                     maxCalories.Text = $"Осталось съесть: {maxCaloriesNumber - totalCalories} кл";
             }
         }
+        private void ShowNotification(string title, string message)
+        {
+            calorieNotifyIcon.Icon = SystemIcons.Warning; 
+            calorieNotifyIcon.BalloonTipTitle = title;
+            calorieNotifyIcon.BalloonTipText = message;
+            calorieNotifyIcon.BalloonTipIcon = ToolTipIcon.Warning;
 
+            if ((DateTime.Now - _lastNotificationTime).TotalMinutes > 10) // Пример: не чаще 1 раза в 10 минут
+            {
+                calorieNotifyIcon.ShowBalloonTip(5000);
+                _lastNotificationTime = DateTime.Now;
+            }
+        }
         private async void MenuButton_Click(object sender, EventArgs e)
         {
             await AnimPanel.AnimateFlowPanelWidth(sidebarContainer, 1, sidebarContainer.MaximumSize.Width, sidebarContainer.MinimumSize.Width);

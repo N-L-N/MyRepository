@@ -1,5 +1,6 @@
 ﻿using ProperDiet.Controls.Static;
 using ProperDiet.Models.Entity;
+using ProperDiet.Properties;
 using ProperDiet.Services.Data;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,8 @@ namespace ProperDiet
         {
             this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
             this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            BackButton.BackgroundImage = UiMode.IsDarkMode ? Resources.back_white : Resources.back_black;
 
             foreach (Control control in this.Controls)
             {

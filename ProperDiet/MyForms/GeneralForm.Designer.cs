@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.menuPanel = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.foodCategoryButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.PagePanel = new System.Windows.Forms.Panel();
+            this.calorieNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.sidebarContainer.SuspendLayout();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
@@ -199,6 +201,11 @@
             this.PagePanel.TabIndex = 1;
             this.PagePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PagePanel_Paint);
             // 
+            // calorieNotifyIcon
+            // 
+            this.calorieNotifyIcon.Text = "notifyIcon1";
+            this.calorieNotifyIcon.Visible = true;
+            // 
             // GeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,6 +247,7 @@
         private System.Windows.Forms.Label NameUser;
         public System.Windows.Forms.Label maxCalories;
         private System.Windows.Forms.Panel PagePanel;
+        private System.Windows.Forms.NotifyIcon calorieNotifyIcon;
     }
 }
 
