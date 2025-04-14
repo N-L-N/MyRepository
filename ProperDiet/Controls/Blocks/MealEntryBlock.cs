@@ -1,7 +1,6 @@
 ﻿using ProperDiet.Animation;
 using ProperDiet.Controls.Static;
 using ProperDiet.Entity;
-using ProperDiet.Intefaces.Animation;
 using ProperDiet.Intefaces.Blocks;
 using ProperDiet.Models.Entity;
 using ProperDiet.Services.Data;
@@ -28,7 +27,7 @@ namespace ProperDiet.Controls.Blocks
             _userId = userId;
             _dbContext = dbContext;
 
-            UiMode.OnThemeChanged += ApplyTheme; // Подписываемся на смену темы
+            UiMode.OnThemeChanged += ApplyTheme; 
         }
 
         public async void CreateBlockAsync()
@@ -36,13 +35,13 @@ namespace ProperDiet.Controls.Blocks
             try
             {
                 var mealEntries = await LoadMealEntriesAsync();
-                if (mealEntries == null) // Исправлено для C# 7.3
+                if (mealEntries == null) 
                 {
                     mealEntries = new List<MealEntry>();
                 }
 
                 AddBlocks(mealEntries);
-                ApplyTheme(); // Применяем тему после создания блоков
+                ApplyTheme(); 
             }
             catch (Exception ex)
             {
@@ -71,9 +70,18 @@ namespace ProperDiet.Controls.Blocks
             foreach (var group in groupedEntries)
             {
                 var foodDetails = group
-                    .Select(entry => _dbContext.GetFoodById(entry.FoodId))
-                    .Where(food => food != null)
-                    .Select(food => (food.Name, food.Description, food.Calories))
+                    .Select(entry =>
+                    {
+                        var food = _dbContext.GetFoodById(entry.FoodId);
+                        if (food != null)
+                        {
+                            // Учитываем размер порции для расчета калорий  
+                            int calories = (food.Calories * entry.PortionSize) / 100;
+                            return (Name: food.Name, Description: food.Description, Calories: calories);
+                        }
+                        return (Name: (string)null, Description: (string)null, Calories: 0);
+                    })
+                    .Where(fd => fd.Name != null)
                     .ToList();
 
                 if (foodDetails.Count > 0)

@@ -72,11 +72,18 @@ namespace ProperDiet.Services.Data
                 throw new InvalidOperationException("Файл не содержит секции '# Еда'.");
             }
 
+            // Ищем конец секции '# Еда'
+            int insertIndex = foodIndex + 1;
+            while (insertIndex < lines.Count && !lines[insertIndex].StartsWith("#") && !string.IsNullOrWhiteSpace(lines[insertIndex]))
+            {
+                insertIndex++;
+            }
+
             // Генерируем строку для еды
             string newFoodLine = $"{food.Id};{food.Name};{food.Description};{food.Calories};{food.CategoryId}";
 
-            // Добавляем еду в конец файла
-            lines.Add(newFoodLine);
+            // Вставляем строку в нужное место
+            lines.Insert(insertIndex, newFoodLine);
 
             // Сохраняем файл
             File.WriteAllLines(_filePath, lines);
@@ -637,7 +644,7 @@ namespace ProperDiet.Services.Data
             }
 
             // Генерируем строку для новой записи о приеме пищи
-            string newMealEntryLine = $"{mealEntry.Id};{mealEntry.FoodId};{mealEntry.Date:yyyy-MM-dd};{mealEntry.UserId}";
+            string newMealEntryLine = $"{mealEntry.Id};{mealEntry.FoodId};{mealEntry.Date:yyyy-MM-dd};{mealEntry.UserId};{mealEntry.PortionSize}";
 
             // Вставляем строку
             lines.Insert(insertIndex, newMealEntryLine);
@@ -673,7 +680,9 @@ namespace ProperDiet.Services.Data
                 if (int.TryParse(parts[0], out int id) &&
                     int.TryParse(parts[1], out int foodId) &&
                     DateTime.TryParse(parts[2], out DateTime date) &&
-                    int.TryParse(parts[3], out int currentUserId))
+                    int.TryParse(parts[3], out int currentUserId) &&
+                    int.TryParse(parts[4], out int portionSize)) 
+                    
                 {
                     // Логируем отладочную информацию
                     Console.WriteLine($"Обработана строка: {line}");
@@ -687,7 +696,8 @@ namespace ProperDiet.Services.Data
                             Id = id,
                             FoodId = foodId,
                             Date = date,
-                            UserId = currentUserId
+                            UserId = currentUserId,
+                            PortionSize = portionSize
                         });
                     }
                 }
@@ -728,7 +738,8 @@ namespace ProperDiet.Services.Data
                 if (int.TryParse(parts[0], out int id) &&
                     int.TryParse(parts[1], out int foodId) &&
                     DateTime.TryParse(parts[2], out DateTime date) &&
-                    int.TryParse(parts[3], out int currentUserId))
+                    int.TryParse(parts[3], out int currentUserId) &&
+                    int.TryParse(parts[4], out int portionSize)) 
                 {
                     // Проверяем совпадение userId и даты
                     if (currentUserId == userId && date.Date == dateTime.Date)
@@ -738,7 +749,8 @@ namespace ProperDiet.Services.Data
                             Id = id,
                             FoodId = foodId,
                             Date = date,
-                            UserId = currentUserId
+                            UserId = currentUserId,
+                            PortionSize = portionSize
                         });
                     }
                 }

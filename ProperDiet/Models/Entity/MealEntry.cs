@@ -14,6 +14,8 @@ namespace ProperDiet.Models.Entity
 
         public int FoodId { get; set; }
 
+        public int PortionSize { get; set; } 
+           
         public DateTime Date { get; set; }
     }
 }

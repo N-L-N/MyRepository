@@ -136,6 +136,13 @@ namespace ProperDiet
                 return;
             }
 
+            if(int.Parse(portionSizeTextBox.Text) <= 0)
+            {
+                MessageBox.Show("Размер порции должен быть больше 0 грамма", "Информация", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                return;
+            }
+
             food = foods[foodList.SelectedIndex];
 
             txtDbContext.AddMealEntry(new Models.Entity.MealEntry 
@@ -144,16 +151,12 @@ namespace ProperDiet
                 Date = DateTime.Now, 
                 FoodId = food.Id,
                 UserId = user.Id,
+                PortionSize = portionSizeTextBox.Text == "" ? 1 : int.Parse(portionSizeTextBox.Text)
             });
 
             this.DialogResult = DialogResult.OK;
 
             this.Hide();
-        }
-
-        private void FoodList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void CategoryCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -168,6 +171,19 @@ namespace ProperDiet
             }
         }
 
-        
+        private void PortionSizeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int selectionStart = portionSizeTextBox.SelectionStart;
+
+            string filteredText = new string(portionSizeTextBox.Text
+                .Where(char.IsDigit)
+                .ToArray());
+ 
+            if (portionSizeTextBox.Text != filteredText)
+            {
+                portionSizeTextBox.Text = filteredText;
+                portionSizeTextBox.SelectionStart = Math.Min(selectionStart, filteredText.Length);
+            }
+        }
     }
 }

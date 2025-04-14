@@ -2,7 +2,6 @@
 using ProperDiet.Controls.Blocks;
 using ProperDiet.Controls.Static;
 using ProperDiet.Entity;
-using ProperDiet.Intefaces.Animation;
 using ProperDiet.Intefaces.Blocks;
 using ProperDiet.Models.Entity;
 using ProperDiet.Services;
@@ -84,41 +83,6 @@ namespace ProperDiet
         }
 
         private void HomeControl_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void InfoDietButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void infoPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void UpdateButtonPosition(Button button, Panel panel)
-        {
-            button.Location = new Point(
-                panel.Width - button.Width - panel.Padding.Right,
-                panel.Padding.Top
-            );
-        }
-        private void UpdateLabelRightPosition(Label label, Panel panel)
-        {
-            label.Location = new Point(
-                panel.Width - label.Width - panel.Padding.Right, // Расположить по правому краю с учётом отступа
-                panel.Height - label.Height - panel.Padding.Bottom // Расположить по нижнему краю с учётом отступа
-            );
-        }
-
-        private void panel1_Resize(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void InfoPanel_SizeChanged(object sender, EventArgs e)
         {
             
         }

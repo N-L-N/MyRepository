@@ -56,7 +56,7 @@
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
             this.sidebarContainer.Margin = new System.Windows.Forms.Padding(4);
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(299, 0);
-            this.sidebarContainer.MinimumSize = new System.Drawing.Size(50, 0);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(45, 0);
             this.sidebarContainer.Name = "sidebarContainer";
             this.sidebarContainer.Size = new System.Drawing.Size(299, 623);
             this.sidebarContainer.TabIndex = 0;
@@ -67,10 +67,13 @@
             this.menuPanel.Controls.Add(this.NameUser);
             this.menuPanel.Controls.Add(this.menuButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuPanel.Location = new System.Drawing.Point(4, 4);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.menuPanel.MaximumSize = new System.Drawing.Size(317, 111);
+            this.menuPanel.MinimumSize = new System.Drawing.Size(317, 46);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(317, 121);
+            this.menuPanel.Size = new System.Drawing.Size(317, 111);
             this.menuPanel.TabIndex = 0;
             // 
             // maxCalories
@@ -83,6 +86,7 @@
             this.maxCalories.Size = new System.Drawing.Size(181, 25);
             this.maxCalories.TabIndex = 5;
             this.maxCalories.Text = "Максимум калорий";
+            this.maxCalories.Click += new System.EventHandler(this.maxCalories_Click);
             // 
             // NameUser
             // 
@@ -97,13 +101,14 @@
             // 
             // menuButton
             // 
-            this.menuButton.BackgroundImage = global::ProperDiet.Properties.Resources.icons8_menu_25;
+            this.menuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.menuButton.BackgroundImage = global::ProperDiet.Properties.Resources.burger_white;
             this.menuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.menuButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuButton.Location = new System.Drawing.Point(8, 81);
+            this.menuButton.Location = new System.Drawing.Point(4, 79);
             this.menuButton.Margin = new System.Windows.Forms.Padding(4);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(25, 25);
+            this.menuButton.Size = new System.Drawing.Size(29, 28);
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.MenuButton_Click);
@@ -117,7 +122,7 @@
             this.homeButton.ForeColor = System.Drawing.Color.Snow;
             this.homeButton.Image = global::ProperDiet.Properties.Resources.home_white;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(4, 133);
+            this.homeButton.Location = new System.Drawing.Point(4, 123);
             this.homeButton.Margin = new System.Windows.Forms.Padding(4);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(299, 65);
@@ -136,7 +141,7 @@
             this.settingsButton.ForeColor = System.Drawing.Color.Snow;
             this.settingsButton.Image = global::ProperDiet.Properties.Resources.settings_white;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsButton.Location = new System.Drawing.Point(4, 206);
+            this.settingsButton.Location = new System.Drawing.Point(4, 196);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(299, 65);
@@ -155,7 +160,7 @@
             this.foodCategoryButton.ForeColor = System.Drawing.Color.Snow;
             this.foodCategoryButton.Image = global::ProperDiet.Properties.Resources.category_white;
             this.foodCategoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.foodCategoryButton.Location = new System.Drawing.Point(4, 279);
+            this.foodCategoryButton.Location = new System.Drawing.Point(4, 269);
             this.foodCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.foodCategoryButton.Name = "foodCategoryButton";
             this.foodCategoryButton.Size = new System.Drawing.Size(299, 65);
@@ -174,7 +179,7 @@
             this.helpButton.ForeColor = System.Drawing.Color.Snow;
             this.helpButton.Image = global::ProperDiet.Properties.Resources.help_white;
             this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(4, 352);
+            this.helpButton.Location = new System.Drawing.Point(4, 342);
             this.helpButton.Margin = new System.Windows.Forms.Padding(4);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(299, 65);

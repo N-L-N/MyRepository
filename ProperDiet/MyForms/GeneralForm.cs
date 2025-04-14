@@ -1,5 +1,5 @@
-﻿using ProperDiet.Controls.Static;
-using ProperDiet.Intefaces.Animation;
+﻿using ProperDiet.Animation;
+using ProperDiet.Controls.Static;
 using ProperDiet.Models.Entity;
 using ProperDiet.Properties;
 using ProperDiet.Services.Calculator;
@@ -15,6 +15,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 
 
@@ -27,7 +28,7 @@ namespace ProperDiet
             InitializeComponent();
             Init(); // Вызываем метод инициализации
         }
-        private IAnimElement animElement;
+
         private readonly User _user;
         private Human _human;
         private CalculatorCalories calculator;
@@ -69,7 +70,7 @@ namespace ProperDiet
                 Resources.food_black,
                 Resources.add_black,
                 Resources.category_black,
-                Resources.help_black
+                Resources.help_black,
             };
 
             imagesWhite = new Bitmap[]
@@ -79,7 +80,7 @@ namespace ProperDiet
                 Resources.food_white,
                 Resources.add_white,
                 Resources.category_white,
-                Resources.help_white
+                Resources.help_white,
             };
         }
 
@@ -87,6 +88,8 @@ namespace ProperDiet
         {
             this.BackColor = UiMode.IsDarkMode ? Color.Black : Color.Snow;
             this.ForeColor = UiMode.IsDarkMode ? Color.Snow : Color.Black;
+
+            menuButton.BackgroundImage = UiMode.IsDarkMode ? Resources.burger_white : Resources.burger_black;
 
             foreach (Control control in this.Controls)
             {
@@ -130,23 +133,52 @@ namespace ProperDiet
         {
             var mealEntries = _txtDbContext.GetMealEntriesByUserIdAndByDateTime(_user.Id, DateTime.Now);
             int maxCaloriesNumber = calculator.Calories;
-
-            foreach (var mealEntry in mealEntries)
+            int totalCalories = 0;
+            var groupedEntries = mealEntries.GroupBy(entry => entry.Date.Date);
+            foreach (var group in groupedEntries)
             {
-                var food = _txtDbContext.GetFoodById(mealEntry.FoodId);
-                maxCaloriesNumber -= food.Calories;
-            }
+                var foodDetails = group
+                    .Select(entry =>
+                    {
+                        var food = _txtDbContext.GetFoodById(entry.FoodId);
+                        if (food != null)
+                        {
+                            // Учитываем размер порции для расчета калорий  
+                            int calories = (food.Calories * entry.PortionSize) / 100;
+                            return (Name: food.Name, Description: food.Description, Calories: calories);
+                        }
+                        return (Name: (string)null, Description: (string)null, Calories: 0);
+                    })
+                    .Where(fd => fd.Name != null)
+                    .ToList();
+                if (foodDetails.Count > 0)
+                {
+                    totalCalories = foodDetails.Sum(fd => fd.Calories);
+                }
 
-            maxCalories.Text = $"Калории: {maxCaloriesNumber}";
+                if(maxCaloriesNumber < totalCalories)
+                    maxCalories.Text = $"Лимит превышен на {Math.Abs(maxCaloriesNumber - totalCalories)} кл";
+                else
+                    maxCalories.Text = $"Осталось съесть: {maxCaloriesNumber - totalCalories} кл";
+            }
         }
 
         private async void MenuButton_Click(object sender, EventArgs e)
         {
-            if (animElement == null)
+            await AnimPanel.AnimateFlowPanelWidth(sidebarContainer, 1, sidebarContainer.MaximumSize.Width, sidebarContainer.MinimumSize.Width);
+
+            await AnimPanel.AnimatePanelHeight(menuPanel, 1, menuPanel.MaximumSize.Height, menuPanel.MinimumSize.Height);
+
+            if (sidebarContainer.Width == sidebarContainer.MinimumSize.Width)
             {
-                animElement = new AnimFlowLayotPanel(sidebarContainer, 30);
+                NameUser.Visible = false;
+                maxCalories.Visible = false;
             }
-            await animElement.Anim();
+            else
+            {
+                NameUser.Visible = true;
+                maxCalories.Visible = true;
+            }
         }
 
         private void LoadControl(UserControl control)
@@ -238,6 +270,11 @@ namespace ProperDiet
         }
 
         private void PagePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void maxCalories_Click(object sender, EventArgs e)
         {
 
         }
