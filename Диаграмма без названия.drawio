@@ -7,6 +7,9 @@
         <mxCell id="mSu9gKpBDarXuBb3gV48-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-1" target="mSu9gKpBDarXuBb3gV48-31">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-1" target="mSu9gKpBDarXuBb3gV48-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-1" value="&lt;div&gt;Регистрация и управление пользователями&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="200" y="135" width="180" height="80" as="geometry" />
         </mxCell>
@@ -17,6 +20,9 @@
           <mxGeometry x="560" y="350" width="180" height="80" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-3" target="mSu9gKpBDarXuBb3gV48-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-3" target="mSu9gKpBDarXuBb3gV48-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-3" value="&lt;div&gt;Управление категориями и продуктами&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -32,7 +38,7 @@
           <mxGeometry x="550" y="300" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-7" value="а3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="740" y="410" width="40" height="30" as="geometry" />
+          <mxGeometry x="720" y="430" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-8" value="а4" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="920" y="520" width="40" height="30" as="geometry" />
@@ -50,13 +56,13 @@
           <mxGeometry x="640" y="470" width="90" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-22" value="&lt;div&gt;Зарегистрированный пользователь&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="370" y="150" width="220" height="30" as="geometry" />
+          <mxGeometry x="390" y="150" width="220" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-24" value="&lt;div&gt;Список категорий и продуктов&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="555" y="260" width="190" height="30" as="geometry" />
+          <mxGeometry x="560" y="250" width="190" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-26" value="&lt;div&gt;Список приёмов пищи и калории&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="730" y="370" width="210" height="30" as="geometry" />
+          <mxGeometry x="750" y="370" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-30" value="Обновленный интерфейс" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="930" y="480" width="170" height="30" as="geometry" />
@@ -124,6 +130,60 @@
         </mxCell>
         <mxCell id="mSu9gKpBDarXuBb3gV48-53" value="Управление" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="827" y="440" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-54" target="mSu9gKpBDarXuBb3gV48-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-54" value="Правила расчета калорий" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="640" y="90" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-56" target="mSu9gKpBDarXuBb3gV48-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-56" value="&lt;div&gt;RegistrationForm, User, Human, TxtDbContext&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="155" y="330" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-58" target="mSu9gKpBDarXuBb3gV48-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-58" value="&lt;div&gt;AddCategoryForm, AddFoodInCategory, Category, Food, TxtDbContext&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="270" y="450" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-60" target="mSu9gKpBDarXuBb3gV48-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-60" value="&lt;div&gt;AddMealEntryForm, MealEntry, CalculatorCalories, TxtDbContext&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="445" y="585" width="410" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-65" value="Механизм" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="640" y="430" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-66" value="Механизм" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="465" y="320" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-67" value="Механизм" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="215" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-68" value="Механизм" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="827" y="550" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-69" target="mSu9gKpBDarXuBb3gV48-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-69" value="&lt;div&gt;Settings, UiMode, ToggleSwitch&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="735" y="670" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-72" value="Данные пользователя" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="640" y="290" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-74" value="Список продуктов" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="530" y="320" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.375;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mSu9gKpBDarXuBb3gV48-2" target="mSu9gKpBDarXuBb3gV48-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mSu9gKpBDarXuBb3gV48-76" value="Данные для отображения" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="730" y="400" width="170" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
