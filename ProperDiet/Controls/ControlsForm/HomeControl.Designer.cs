@@ -39,7 +39,7 @@
             this.mealEntryPanel.ForeColor = System.Drawing.Color.Snow;
             this.mealEntryPanel.Location = new System.Drawing.Point(0, 0);
             this.mealEntryPanel.Name = "mealEntryPanel";
-            this.mealEntryPanel.Size = new System.Drawing.Size(1129, 300);
+            this.mealEntryPanel.Size = new System.Drawing.Size(628, 355);
             this.mealEntryPanel.TabIndex = 9;
             // 
             // HomeControl
@@ -53,7 +53,7 @@
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomeControl";
-            this.Size = new System.Drawing.Size(1129, 300);
+            this.Size = new System.Drawing.Size(628, 355);
             this.Load += new System.EventHandler(this.HomeControl_Load);
             this.ResumeLayout(false);
 

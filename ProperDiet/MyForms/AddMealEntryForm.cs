@@ -128,7 +128,7 @@ namespace ProperDiet
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        { 
+        {
             if (foodList.SelectedItems == null)
             {
                 MessageBox.Show("Необходимо выбрать продукт", "Информация", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -136,22 +136,28 @@ namespace ProperDiet
                 return;
             }
 
-            if(int.Parse(portionSizeTextBox.Text) <= 0)
+            if (!int.TryParse(portionSizeTextBox.Text, out int portionSize) || portionSize <= 0)
             {
-                MessageBox.Show("Размер порции должен быть больше 0 грамма", "Информация", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show("Размер порции должен быть больше 0 грамма и не превышать допустимые пределы.", "Информация", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+                return;
+            }
+
+            if (foodList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Необходимо выбрать продукт", "Информация", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 return;
             }
 
             food = foods[foodList.SelectedIndex];
 
-            txtDbContext.AddMealEntry(new Models.Entity.MealEntry 
-            { 
-                Id = txtDbContext.GetLastMealEntryId() + 1, 
-                Date = DateTime.Now, 
+            txtDbContext.AddMealEntry(new Models.Entity.MealEntry
+            {
+                Id = txtDbContext.GetLastMealEntryId() + 1,
+                Date = DateTime.Now,
                 FoodId = food.Id,
                 UserId = user.Id,
-                PortionSize = portionSizeTextBox.Text == "" ? 1 : int.Parse(portionSizeTextBox.Text)
+                PortionSize = portionSize
             });
 
             this.DialogResult = DialogResult.OK;

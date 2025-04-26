@@ -142,28 +142,31 @@ namespace ProperDiet.Services.Data
                     continue;
                 }
 
-                if (isFoodSection && !string.IsNullOrWhiteSpace(line))
+                if (isFoodSection)
                 {
+                    if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+                    {
+                        break; // Завершаем обработку секции, если начинается новая или строка пустая
+                    }
+
                     var parts = line.Split(';');
 
                     // Проверка корректности данных
-                    if (parts.Length != 5 ||
-                        !int.TryParse(parts[0], out var id) ||
-                        !int.TryParse(parts[3], out var calories) ||
-                        !int.TryParse(parts[4], out var categoryId))
+                    if (parts.Length == 5 &&
+                        int.TryParse(parts[0], out var id) &&
+                        int.TryParse(parts[3], out var calories) &&
+                        int.TryParse(parts[4], out var categoryId))
                     {
-                        continue;
+                        // Добавление продукта в список
+                        foods.Add(new Entity.Food
+                        {
+                            Id = id,
+                            Name = parts[1],
+                            Description = parts[2],
+                            Calories = calories,
+                            CategoryId = categoryId
+                        });
                     }
-
-                    // Добавление продукта в список
-                    foods.Add(new Entity.Food
-                    {
-                        Id = id,
-                        Name = parts[1],
-                        Description = parts[2],
-                        Calories = calories,
-                        CategoryId = categoryId
-                    });
                 }
             }
 
@@ -375,17 +378,17 @@ namespace ProperDiet.Services.Data
             var lines = File.ReadAllLines(_filePath).ToList();
 
             // Находим секцию '# Пользователи'
-            int categoryIndex = lines.FindIndex(line => line.StartsWith("# Пользователи"));
+            int userSectionIndex = lines.FindIndex(line => line.StartsWith("# Пользователи"));
 
-            // Если секции нет, добавляем ее в конец
-            if (categoryIndex == -1)
+            // Если секции нет, добавляем её в конец
+            if (userSectionIndex == -1)
             {
                 lines.Add("# Пользователи");
-                categoryIndex = lines.Count - 1; // Указываем индекс на новую секцию
+                userSectionIndex = lines.Count - 1; // Указываем индекс на новую секцию
             }
 
             // Ищем, где заканчиваются пользователи
-            int insertIndex = categoryIndex + 1; // Начинаем сразу после заголовка
+            int insertIndex = userSectionIndex + 1; // Начинаем сразу после заголовка
             while (insertIndex < lines.Count && !lines[insertIndex].StartsWith("#") && !string.IsNullOrWhiteSpace(lines[insertIndex]))
             {
                 insertIndex++;
@@ -474,25 +477,26 @@ namespace ProperDiet.Services.Data
         /// <summary>
         /// Получить пользователя по ID
         /// </summary>
-        /// <param name="id">Id пользователи.</param>
+        /// <param name="id">Id пользователя.</param>
         /// <returns>Объект User, если пользователь найден, иначе null.</returns>
         public User GetUserById(int id)
         {
             var lines = File.ReadAllLines(_filePath);
+            bool isUserSection = false;
 
+            // Поиск строки пользователя
             foreach (var line in lines)
             {
-                // Пропускаем пустые строки и комментарии
-                if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))
+                if (line.StartsWith("# Пользователи"))
+                {
+                    isUserSection = true;
                     continue;
+                }
 
-                // Разбиваем строку на части
+                if (!isUserSection || string.IsNullOrWhiteSpace(line)) continue;
+
                 var parts = line.Split(';');
-                if (parts.Length < 4) // Проверяем, что данных достаточно
-                    continue;
-
-                // Если первый элемент совпадает с заданным id, создаем объект User
-                if (int.Parse(parts[0]) == id)
+                if (parts.Length >= 4 && int.Parse(parts[0]) == id)
                 {
                     return new User
                     {
@@ -504,7 +508,7 @@ namespace ProperDiet.Services.Data
                 }
             }
 
-            return null; // Если пользователь с указанным id не найден
+            return null;
         }
 
 

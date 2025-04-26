@@ -255,7 +255,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(896, 359);
             this.Name = "ContinuationRegForm";
-            this.Text = "ContinuationRegForm";
+            this.Text = "Регистрация";
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heightNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightNumeric)).EndInit();
